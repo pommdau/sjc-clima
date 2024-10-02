@@ -43,6 +43,8 @@ extension WeatherViewController: UITextFieldDelegate {
     
         func searchWeather() {
             if let cityName = searchField.text {
+                // 都市を検索するごとに、コンソールに以下のログを出す
+                print("action: serach, city: \(cityName)")
                 weatherManager.fetchWeather(cityName)
             }
         }
