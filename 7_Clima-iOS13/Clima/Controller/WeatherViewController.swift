@@ -19,7 +19,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var searchField: UITextField!
-            
+    @IBOutlet private weak var backgroundImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +31,7 @@ class WeatherViewController: UIViewController {
 }
  
 // MARK: - TextField extension
+
 extension WeatherViewController: UITextFieldDelegate {
         @IBAction private func searchBtnClicked(_ sender: UIButton) {
             searchField.endEditing(true) // dismiss keyboard
@@ -51,7 +53,6 @@ extension WeatherViewController: UITextFieldDelegate {
             if let text = searchField.text {
                 print(text)
             }
-            
             searchWeather()
             return true
         }
@@ -84,6 +85,12 @@ extension WeatherViewController: WeatherManagerDelegate {
             temperatureLabel.text = weatherModel.temperatureString
             cityLabel.text = weatherModel.cityName
             self.conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+            
+            if weatherModel.cityName == "Tokyo" {
+                self.backgroundImageView.image = UIImage(named: "background-tokyo")
+            } else {
+                self.backgroundImageView.image = UIImage(named: "background")
+            }
         }
     }
     
