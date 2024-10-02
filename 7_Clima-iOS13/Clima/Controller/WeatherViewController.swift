@@ -121,3 +121,12 @@ extension WeatherViewController: CLLocationManagerDelegate {
         print(error)
     }
 }
+
+// MARK: - Favorites Button
+
+extension WeatherViewController {
+    @IBAction private func favoritesButtonClicked(_ sender: UIButton) {
+        let viewController = FavoritesViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
