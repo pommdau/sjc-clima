@@ -1,20 +1,16 @@
-## Issue
-
-- close #TBD
-
 ## Overview
 
-TBD
+- TBD
 
 ## Details (Optional)
 
-TBD
+- TBD
 
 ## Checklist
 
-- [ ] Format code with SwiftLint (<kbd>⌘B</kbd> in Xcode)
-- [ ] Resolve Xcode warning
+- [] Format code with SwiftLint (<kbd>⌘B</kbd> in Xcode)
+- [] Resolve Xcode warning
 
 ## Reference(s) (Optional)
 
-- https://example.com
+- N/A
