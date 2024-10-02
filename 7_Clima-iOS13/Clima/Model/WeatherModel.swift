@@ -13,14 +13,14 @@ struct WeatherModel {
     let conditionId: Int
     let temperature: Double
     
-    var temperatureString: String{
-        return String.init(format: "%.1f", temperature)
+    var temperatureString: String {
+        return String(format: "%.1f", temperature)
     }
     
     // computed property
     var conditionName: String {
         // docs https://openweathermap.org/weather-conditions
-        switch conditionId/100 {
+        switch conditionId / 100 {
         case 2:
             return "cloud.bolt"
         case 3:

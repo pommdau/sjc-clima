@@ -11,16 +11,15 @@ import CoreLocation
 
 class WeatherViewController: UIViewController {
 
-    @IBOutlet weak var conditionImageView: UIImageView!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var searchField: UITextField!
-    
-    
-    //MARK: Properties
+    // MARK: Properties
     var weatherManager = WeatherDataManager()
     let locationManager = CLLocationManager()
     
+    @IBOutlet private weak var conditionImageView: UIImageView!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var searchField: UITextField!
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,30 +27,30 @@ class WeatherViewController: UIViewController {
         weatherManager.delegate = self
         searchField.delegate = self
     }
-
-
 }
  
-//MARK:- TextField extension
+// MARK: - TextField extension
 extension WeatherViewController: UITextFieldDelegate {
-    
-        @IBAction func searchBtnClicked(_ sender: UIButton) {
-            searchField.endEditing(true)    //dismiss keyboard
-            print(searchField.text!)
-            
+        @IBAction private func searchBtnClicked(_ sender: UIButton) {
+            searchField.endEditing(true) // dismiss keyboard
+            if let text = searchField.text {
+                print(text)
+            }
             searchWeather()
         }
     
-        func searchWeather(){
-            if let cityName = searchField.text{
+        func searchWeather() {
+            if let cityName = searchField.text {
                 weatherManager.fetchWeather(cityName)
             }
         }
         
         // when keyboard return clicked
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            searchField.endEditing(true)    //dismiss keyboard
-            print(searchField.text!)
+            searchField.endEditing(true) // dismiss keyboard
+            if let text = searchField.text {
+                print(text)
+            }
             
             searchWeather()
             return true
@@ -60,12 +59,15 @@ extension WeatherViewController: UITextFieldDelegate {
         // when textfield deselected
         func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
             // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
-            if textField.text != "" {
-                return true
-            }else{
-                textField.placeholder = "Type something here"
-                return false            // check if city name is valid
+            if let text = textField.text {
+                if !text.isEmpty {
+                    // 有効なテキストが入力されている場合
+                    return true
+                }
             }
+            // 入力が空のとき
+            textField.placeholder = "Type something here"
+            return false // check if city name is valid
         }
         
         // when textfield stop editing (keyboard dismissed)
@@ -74,10 +76,10 @@ extension WeatherViewController: UITextFieldDelegate {
         }
 }
 
-//MARK:- View update extension
+// MARK: - View update extension
 extension WeatherViewController: WeatherManagerDelegate {
     
-    func updateWeather(weatherModel: WeatherModel){
+    func updateWeather(weatherModel: WeatherModel) {
         DispatchQueue.main.sync {
             temperatureLabel.text = weatherModel.temperatureString
             cityLabel.text = weatherModel.cityName
@@ -85,21 +87,20 @@ extension WeatherViewController: WeatherManagerDelegate {
         }
     }
     
-    func failedWithError(error: Error){
+    func failedWithError(error: Error) {
         print(error)
     }
 }
 
-// MARK:- CLLocation
+// MARK: - CLLocation
 extension WeatherViewController: CLLocationManagerDelegate {
     
-    @IBAction func locationButtonClicked(_ sender: UIButton) {
+    @IBAction private func locationButtonClicked(_ sender: UIButton) {
         // Get permission
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
-    
-    
+        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let lat = location.coordinate.latitude
