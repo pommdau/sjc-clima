@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class WeatherViewController: UIViewController {
-
+    
     // MARK: Properties
     var weatherManager = WeatherDataManager()
     let locationManager = CLLocationManager()
@@ -29,54 +29,54 @@ class WeatherViewController: UIViewController {
         searchField.delegate = self
     }
 }
- 
+
 // MARK: - TextField extension
 
 extension WeatherViewController: UITextFieldDelegate {
-        @IBAction private func searchBtnClicked(_ sender: UIButton) {
-            searchField.endEditing(true) // dismiss keyboard
-            if let text = searchField.text {
-                print(text)
-            }
-            searchWeather()
+    @IBAction private func searchBtnClicked(_ sender: UIButton) {
+        searchField.endEditing(true) // dismiss keyboard
+        if let text = searchField.text {
+            print(text)
         }
+        searchWeather()
+    }
     
-        func searchWeather() {
-            if let cityName = searchField.text {
-                // 都市を検索するごとに、コンソールに以下のログを出す
-                print("action: serach, city: \(cityName)")
-                weatherManager.fetchWeather(cityName)
+    func searchWeather() {
+        if let cityName = searchField.text {
+            // 都市を検索するごとに、コンソールに以下のログを出す
+            print("action: serach, city: \(cityName)")
+            weatherManager.fetchWeather(cityName)
+        }
+    }
+    
+    // when keyboard return clicked
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true) // dismiss keyboard
+        if let text = searchField.text {
+            print(text)
+        }
+        searchWeather()
+        return true
+    }
+    
+    // when textfield deselected
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
+        if let text = textField.text {
+            if !text.isEmpty {
+                // 有効なテキストが入力されている場合
+                return true
             }
         }
-        
-        // when keyboard return clicked
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            searchField.endEditing(true) // dismiss keyboard
-            if let text = searchField.text {
-                print(text)
-            }
-            searchWeather()
-            return true
-        }
-        
-        // when textfield deselected
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
-            if let text = textField.text {
-                if !text.isEmpty {
-                    // 有効なテキストが入力されている場合
-                    return true
-                }
-            }
-            // 入力が空のとき
-            textField.placeholder = "Type something here"
-            return false // check if city name is valid
-        }
-        
-        // when textfield stop editing (keyboard dismissed)
-        func textFieldDidEndEditing(_ textField: UITextField) {
-    //        searchField.text = ""   // clear textField
-        }
+        // 入力が空のとき
+        textField.placeholder = "Type something here"
+        return false // check if city name is valid
+    }
+    
+    // when textfield stop editing (keyboard dismissed)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //        searchField.text = ""   // clear textField
+    }
 }
 
 // MARK: - View update extension
@@ -109,7 +109,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
-        
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let lat = location.coordinate.latitude
