@@ -14,6 +14,7 @@
                 <outlet property="backgroundImageView" destination="nuC-bF-CGj" id="RQJ-uc-32x"/>
                 <outlet property="cityLabel" destination="N4N-uC-PK9" id="PNg-Ka-87i"/>
                 <outlet property="conditionImageView" destination="vcw-vT-eLS" id="arv-MX-DYn"/>
+                <outlet property="dadJokeLabel" destination="0aC-8E-XQu" id="dqT-1l-1zc"/>
                 <outlet property="searchField" destination="MQc-02-3vj" id="pjO-y7-za1"/>
                 <outlet property="temperatureLabel" destination="uOD-K6-ZOL" id="yUK-xz-tdb"/>
                 <outlet property="view" destination="LxB-Vq-vBY" id="qWQ-zr-ZEM"/>
@@ -74,7 +75,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-8u-iCM">
-                            <rect key="frame" x="249.33333333333329" y="180" width="103.66666666666666" height="72.333333333333314"/>
+                            <rect key="frame" x="249.33333333333329" y="180" width="103.66666666666666" height="78.333333333333314"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="お気に入り"/>
                             <connections>
@@ -82,37 +83,68 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zp-WX-bmk">
-                            <rect key="frame" x="155.33333333333337" y="262.33333333333331" width="197.66666666666663" height="119.66666666666669"/>
+                            <rect key="frame" x="175.33333333333337" y="268.33333333333331" width="177.66666666666663" height="119.66666666666669"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-K6-ZOL" userLabel="Temperature Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="119.66666666666667"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-K6-ZOL" userLabel="Temperature Label">
+                                    <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="119.66666666666667"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="80"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgP-lH-Ml9" userLabel="Temperature Label">
-                                    <rect key="frame" x="92.666666666666657" y="0.0" width="38" height="119.66666666666667"/>
+                                    <rect key="frame" x="72.666666666666657" y="0.0" width="38" height="119.66666666666667"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="100"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVZ-rx-Sm2" userLabel="Temperature Label">
-                                    <rect key="frame" x="130.66666666666666" y="0.0" width="67" height="119.66666666666667"/>
+                                    <rect key="frame" x="110.66666666666666" y="0.0" width="67" height="119.66666666666667"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="100"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4N-uC-PK9">
-                            <rect key="frame" x="255" y="392" width="98" height="36"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4N-uC-PK9">
+                            <rect key="frame" x="286.66666666666669" y="398" width="66.333333333333314" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfc-7Y-HmV">
-                            <rect key="frame" x="113" y="438" width="240" height="321"/>
+                            <rect key="frame" x="0.0" y="444" width="353" height="315"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="上のボタンを押すと面白いギャグが表示されます！" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-8E-XQu">
+                                    <rect key="frame" x="20" y="209" width="313" height="86"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="86" id="WOU-kC-ccQ"/>
+                                    </constraints>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahd-4d-mFV">
+                                    <rect key="frame" x="129" y="166.66666666666663" width="95.333333333333314" height="34.333333333333343"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Dad Joke"/>
+                                    <connections>
+                                        <action selector="dadJokeButtonClicked:" destination="-1" eventType="touchUpInside" id="PyX-9p-aqa"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="0aC-8E-XQu" firstAttribute="leading" secondItem="Cfc-7Y-HmV" secondAttribute="leading" constant="20" symbolic="YES" id="1bS-QL-rJw"/>
+                                <constraint firstAttribute="bottom" secondItem="0aC-8E-XQu" secondAttribute="bottom" constant="20" symbolic="YES" id="CER-id-Bb5"/>
+                                <constraint firstItem="ahd-4d-mFV" firstAttribute="centerX" secondItem="0aC-8E-XQu" secondAttribute="centerX" id="igS-fr-msd"/>
+                                <constraint firstItem="0aC-8E-XQu" firstAttribute="top" secondItem="ahd-4d-mFV" secondAttribute="bottom" constant="8" symbolic="YES" id="rm2-17-qSq"/>
+                                <constraint firstAttribute="trailing" secondItem="0aC-8E-XQu" secondAttribute="trailing" constant="20" symbolic="YES" id="sex-Cq-8Bc"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="7SG-D0-rXI" secondAttribute="trailing" id="GMc-1c-2Ct"/>
+                        <constraint firstItem="Cfc-7Y-HmV" firstAttribute="leading" secondItem="UGS-0D-WqV" secondAttribute="leading" id="gds-jE-s8Z"/>
+                        <constraint firstAttribute="trailing" secondItem="Cfc-7Y-HmV" secondAttribute="trailing" id="hep-by-aw1"/>
                         <constraint firstItem="7SG-D0-rXI" firstAttribute="leading" secondItem="UGS-0D-WqV" secondAttribute="leading" id="jL9-tm-ULC"/>
+                        <constraint firstAttribute="bottom" secondItem="Cfc-7Y-HmV" secondAttribute="bottom" id="osL-q7-myw"/>
+                        <constraint firstItem="Cfc-7Y-HmV" firstAttribute="centerX" secondItem="UGS-0D-WqV" secondAttribute="centerX" id="tN9-m3-zlG"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -128,7 +160,7 @@
                 <constraint firstAttribute="trailing" secondItem="nuC-bF-CGj" secondAttribute="trailing" id="cyt-5f-klL"/>
                 <constraint firstItem="Wyb-SW-wdt" firstAttribute="bottom" secondItem="UGS-0D-WqV" secondAttribute="bottom" id="nVd-MV-hFN"/>
             </constraints>
-            <point key="canvasLocation" x="456" y="-626"/>
+            <point key="canvasLocation" x="455.72519083969462" y="-626.05633802816908"/>
         </view>
     </objects>
     <resources>
