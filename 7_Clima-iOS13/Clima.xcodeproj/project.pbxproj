@@ -17,6 +17,9 @@
 		ADAA27C6231BC02C00365194 /* light_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C4231BC02B00365194 /* light_background.pdf */; };
 		ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C5231BC02B00365194 /* dark_background.pdf */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
+		DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */; };
+		DA1B61972CAE5D5700BC0A28 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61962CAE5D5700BC0A28 /* HTTPTypes */; };
+		DA1B61992CAE5D5700BC0A28 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61982CAE5D5700BC0A28 /* HTTPTypesFoundation */; };
 		DA1F582A2CAD81E900BD59C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */; };
 		DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */; };
 		DA95EF282CAD8FCF00EFAE82 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */; };
@@ -39,6 +42,7 @@
 		ADAA27C4231BC02B00365194 /* light_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = light_background.pdf; sourceTree = "<group>"; };
 		ADAA27C5231BC02B00365194 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1B61972CAE5D5700BC0A28 /* HTTPTypes in Frameworks */,
+				DA1B61992CAE5D5700BC0A28 /* HTTPTypesFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 			children = (
 				ADAA27B0231BBFAF00365194 /* AppDelegate.swift */,
 				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
+				DA1B61922CAE5C9E00BC0A28 /* API */,
 				ADAA27CA231BC3FA00365194 /* Model */,
 				ADAA27C9231BC3F200365194 /* View */,
 				ADAA27C8231BC3E500365194 /* Controller */,
@@ -121,6 +128,14 @@
 				7DB97A2B24585AB800C3BB03 /* WeatherModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DA1B61922CAE5C9E00BC0A28 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		DA95EF2A2CADA33C00EFAE82 /* workflows */ = {
@@ -189,6 +204,7 @@
 			mainGroup = ADAA27A4231BBFAF00365194;
 			packageReferences = (
 				DA1F582B2CAD821C00BD59C9 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */,
 			);
 			productRefGroup = ADAA27AE231BBFAF00365194 /* Products */;
 			projectDirPath = "";
@@ -224,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */,
 				7D64259624473AE800F1DD90 /* WeatherDataManager.swift in Sources */,
 				7D6425982451AEA500F1DD90 /* WeatherData.swift in Sources */,
 				DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */,
@@ -435,6 +452,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-http-types";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		DA1F582B2CAD821C00BD59C9 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint.git";
@@ -446,6 +471,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA1B61962CAE5D5700BC0A28 /* HTTPTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */;
+			productName = HTTPTypes;
+		};
+		DA1B61982CAE5D5700BC0A28 /* HTTPTypesFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */;
+			productName = HTTPTypesFoundation;
+		};
 		DA1F582C2CAD824000BD59C9 /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA1F582B2CAD821C00BD59C9 /* XCRemoteSwiftPackageReference "SwiftLint" */;
