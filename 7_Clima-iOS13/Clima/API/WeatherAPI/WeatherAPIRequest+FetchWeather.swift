@@ -14,7 +14,7 @@ extension WeatherAPIRequest {
     }
 }
 
-// MARK: - APIRequestProtocol
+// MARK: - WeatherAPIRequestProtocol
 
 extension WeatherAPIRequest.FetchWeather: WeatherAPIRequestProtocol { }
 

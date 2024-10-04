@@ -130,7 +130,7 @@ extension WeatherViewController {
 // MARK: - View update extension
 
 extension WeatherViewController {
-    // TODO: Viewにモデルをもたせる形に変更する
+    // TODO: Viewにモデルをもたせる形に変更する // swiftlint:disable:this todo
     private func configureUI(weatherModel: WeatherModel) {
         temperatureLabel.text = weatherModel.temperatureString
         cityLabel.text = weatherModel.cityName
