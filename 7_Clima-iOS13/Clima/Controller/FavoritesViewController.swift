@@ -65,7 +65,7 @@ class FavoritesViewController: UIViewController {
             UINib(nibName: "FavoritesTableViewCell", bundle: nil),
             forCellReuseIdentifier: "favorites_tableview_cell"
         )
-        locationsTableView.sectionIndexBackgroundColor = .blue
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,8 +95,13 @@ extension FavoritesViewController: UITableViewDataSource {
         locationGroups.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        locationGroups[section].name
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = FavoritesTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        60
     }
         
     // MARK: - Cells
