@@ -43,12 +43,12 @@ extension FavoritedLocationGroup {
 }
 
 class FavoritesViewController: UIViewController {
-    
-    @IBOutlet weak var locationsTableView: UITableView!
-    
+        
     // MARK: - Properties
     
     private var locationGroups = FavoritedLocationGroup.exampleData
+    
+    @IBOutlet private weak var locationsTableView: UITableView!
             
     // MARK: - LifeCycle
     
@@ -60,6 +60,17 @@ class FavoritesViewController: UIViewController {
                                              target: self,
                                              action: #selector(backViewButtonTapped))
         self.navigationItem.leftBarButtonItem = backViewButton
+        
+        locationsTableView.register(
+            UINib(nibName: "FavoritesTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "favorites_tableview_cell"
+        )
+        locationsTableView.sectionIndexBackgroundColor = .blue
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationsTableView.reloadData()
     }
         
     // MARK: - NavigationItem Actions
@@ -78,23 +89,34 @@ extension FavoritesViewController: UITableViewDelegate {
 
 extension FavoritesViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = locationGroups[section].name
-        return cell
-    }
+    // MARK: - Sections
     
     func numberOfSections(in tableView: UITableView) -> Int {
         locationGroups.count
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        locationGroups[section].name
+    }
+        
+    // MARK: - Cells
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         locationGroups[section].locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = locationGroups[indexPath.section].locations[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favorites_tableview_cell", for: indexPath) as? FavoritesTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.location = locationGroups[indexPath.section].locations[indexPath.row]
         return cell
+    }
+    
+    // MARK: - Selected
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let location = locationGroups[indexPath.section].locations[indexPath.row]
+        print(location.name)
     }
 }

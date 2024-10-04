@@ -24,6 +24,8 @@
 		DA95EF2E2CADA33C00EFAE82 /* run-swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF292CADA33C00EFAE82 /* run-swiftlint.yml */; };
 		DA95EF502CAE4AAE00EFAE82 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */; };
 		DA95EF512CAE4AAE00EFAE82 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */; };
+		DAB9D52B2CAFD60800F9218C /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9D5292CAFD60800F9218C /* FavoritesTableViewCell.swift */; };
+		DAB9D52C2CAFD60800F9218C /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB9D52A2CAFD60800F9218C /* FavoritesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		DA95EF2B2CADA33C00EFAE82 /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pull_request_template.md; sourceTree = "<group>"; };
 		DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		DAB9D5292CAFD60800F9218C /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		DAB9D52A2CAFD60800F9218C /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			children = (
 				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
 				DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */,
+				DAB9D5292CAFD60800F9218C /* FavoritesTableViewCell.swift */,
+				DAB9D52A2CAFD60800F9218C /* FavoritesTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB9D52C2CAFD60800F9218C /* FavoritesTableViewCell.xib in Resources */,
 				DA95EF2D2CADA33C00EFAE82 /* pull_request_template.md in Resources */,
 				DA95EF2E2CADA33C00EFAE82 /* run-swiftlint.yml in Resources */,
 				ADAA27CE231BC87F00365194 /* README.md in Resources */,
@@ -229,6 +236,7 @@
 				DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */,
 				ADAA27B1231BBFAF00365194 /* AppDelegate.swift in Sources */,
 				DA95EF502CAE4AAE00EFAE82 /* WeatherViewController.swift in Sources */,
+				DAB9D52B2CAFD60800F9218C /* FavoritesTableViewCell.swift in Sources */,
 				7DB97A2C24585AB800C3BB03 /* WeatherModel.swift in Sources */,
 				ADAA27B3231BBFAF00365194 /* SceneDelegate.swift in Sources */,
 			);
