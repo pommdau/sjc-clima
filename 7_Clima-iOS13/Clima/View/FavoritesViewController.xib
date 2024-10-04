@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController" customModule="Clima" customModuleProvider="target">
             <connections>
+                <outlet property="locationsTableView" destination="0f9-Ui-AlA" id="1OC-av-CxJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,23 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FavoritesViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3L-bF-kjN">
-                    <rect key="frame" x="106.66666666666669" y="415.66666666666669" width="180" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0f9-Ui-AlA">
+                    <rect key="frame" x="0.0" y="70" width="393" height="782"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jQv-BA-Mz8"/>
+                        <outlet property="delegate" destination="-1" id="4ag-XG-rPN"/>
+                    </connections>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
-                <constraint firstItem="U3L-bF-kjN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="78h-V9-M6c"/>
-                <constraint firstItem="U3L-bF-kjN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mvy-bV-x9A"/>
+                <constraint firstAttribute="bottom" secondItem="0f9-Ui-AlA" secondAttribute="bottom" id="HSw-Vm-CzX"/>
+                <constraint firstItem="0f9-Ui-AlA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="11" id="dJ6-by-ni4"/>
+                <constraint firstItem="0f9-Ui-AlA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gVv-jl-Yqw"/>
+                <constraint firstItem="0f9-Ui-AlA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ivm-x3-jBt"/>
             </constraints>
-            <point key="canvasLocation" x="102" y="20"/>
+            <point key="canvasLocation" x="101.5267175572519" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
