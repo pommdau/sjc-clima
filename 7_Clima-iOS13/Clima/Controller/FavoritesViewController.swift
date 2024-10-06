@@ -71,7 +71,7 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        60
+        40
     }
         
     // MARK: - Cells
@@ -99,11 +99,13 @@ extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
             let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
+        
+        // 開閉状態のデータ更新
         locationGroups[groupIndex].isExpanded.toggle()
                 
+        // 開閉処理をアニメーション付きで行う
         if locationGroups[groupIndex].isExpanded {
             // グループが開かれた場合
-            
             let indexPaths = (0..<LocationGroup.definedData[groupIndex].locations.count).map {
                 IndexPath(row: $0, section: groupIndex)
             }
@@ -116,17 +118,16 @@ extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
             self.tableView.endUpdates()
         } else {
             // グループが閉じられた場合
-            
             let indexPaths = (0..<locationGroups[groupIndex].locations.count).map {
                 IndexPath(row: $0, section: groupIndex)
             }
-            
             locationGroups[groupIndex].locations.removeAll()
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: indexPaths, with: .fade)
             self.tableView.endUpdates()
         }
         
+        // ヘッダビュー側のデータとUIの更新
         headerView.locationGroup = locationGroups[groupIndex]
     }
 }

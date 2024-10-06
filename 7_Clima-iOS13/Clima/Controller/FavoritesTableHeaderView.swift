@@ -8,9 +8,13 @@
 
 import UIKit
 
+// MARK: - FavoritesTableHeaderViewDelegate
+
 protocol FavoritesTableHeaderViewDelegate: AnyObject {
     func tableHeaderViewDidSelect(_ headerView: FavoritesTableHeaderView)
 }
+
+// MARK: - FavoritesTableHeaderView
 
 class FavoritesTableHeaderView: UIView {
 
@@ -39,7 +43,7 @@ class FavoritesTableHeaderView: UIView {
     
     // MARK: - @IBAction
     
-    @IBAction private func handleViewTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction private func viewTapped(_ sender: UITapGestureRecognizer) {
         delegate?.tableHeaderViewDidSelect(self)
     }
         
