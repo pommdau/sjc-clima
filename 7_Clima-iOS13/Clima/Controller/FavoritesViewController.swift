@@ -8,48 +8,13 @@
 
 import UIKit
 
-struct FavoritedLocationGroup: Identifiable {
-    struct FavoritedLocation: Identifiable {
-        let uuid = UUID()
-        var id: String { uuid.uuidString }
-        var name: String
-    }
-    let uuid = UUID()
-    let name: String
-    var id: String { uuid.uuidString }
-    let locations: [FavoritedLocation]
-    var isExpanded: Bool = true
-}
-
-extension FavoritedLocationGroup {
-    static let exampleData: [FavoritedLocationGroup] = [
-        .init(name: "EU", locations: [
-            .init(name: "ベルリン"),
-            .init(name: "アムステルダム"),
-            .init(name: "ロンドン"),
-        ]),
-        .init(name: "アジア", locations: [
-            .init(name: "東京"),
-            .init(name: "バンコク"),
-        ]),
-        .init(name: "オセアニア", locations: [
-            .init(name: "シドニー"),
-            .init(name: "メルボルン"),
-            .init(name: "ロンドン"),
-        ]),
-        .init(name: "アフリカ", locations: [
-            .init(name: "ケープタウン"),
-        ])
-    ]
-}
-
 class FavoritesViewController: UIViewController {
         
     // MARK: - Properties
     
-    private var locationGroups = FavoritedLocationGroup.exampleData
+    private var locationGroups = LocationGroup.exampleData
     
-    @IBOutlet private weak var locationsTableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
             
     // MARK: - LifeCycle
     
@@ -62,7 +27,7 @@ class FavoritesViewController: UIViewController {
                                              action: #selector(backViewButtonTapped))
         self.navigationItem.leftBarButtonItem = backViewButton
         
-        locationsTableView.register(
+        tableView.register(
             UINib(nibName: "FavoritesTableViewCell", bundle: nil),
             forCellReuseIdentifier: "favorites_tableview_cell"
         )
@@ -71,7 +36,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        locationsTableView.reloadData()
+        tableView.reloadData()
     }
         
     // MARK: - NavigationItem Actions
@@ -132,11 +97,11 @@ extension FavoritesViewController: UITableViewDataSource {
 }
 
 extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
-    func didTapHeaderView(group: FavoritedLocationGroup) {
+    func didTapHeaderView(group: LocationGroup) {
         guard let index = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
         locationGroups[index].isExpanded.toggle()
-        locationsTableView.reloadSections(.init(integer: index), with: .automatic)
+        tableView.reloadSections(.init(integer: index), with: .automatic)
     }
 }

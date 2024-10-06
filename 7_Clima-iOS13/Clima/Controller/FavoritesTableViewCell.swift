@@ -12,7 +12,7 @@ class FavoritesTableViewCell: UITableViewCell {
         
     // MARK: - Properties
     
-    var location: FavoritedLocationGroup.FavoritedLocation? {
+    var location: LocationGroup.Location? {
         didSet {
             configureUI()
         }

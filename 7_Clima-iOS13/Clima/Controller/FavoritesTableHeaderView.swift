@@ -9,14 +9,14 @@
 import UIKit
 
 protocol FavoritesTableHeaderViewDelegate: AnyObject {
-    func didTapHeaderView(group: FavoritedLocationGroup)
+    func didTapHeaderView(group: LocationGroup)
 }
 
 class FavoritesTableHeaderView: UIView {
 
     // MARK: - Properties
     
-    var group: FavoritedLocationGroup?
+    var group: LocationGroup?
 //    var tapAction: (() -> Void)?
     weak var delegate: FavoritesTableHeaderViewDelegate?
         

@@ -18,6 +18,7 @@
 		ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C5231BC02B00365194 /* dark_background.pdf */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
 		DA1F582A2CAD81E900BD59C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */; };
+		DA954F2A2CB258FE00A36CA7 /* LocationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA954F292CB258FE00A36CA7 /* LocationGroup.swift */; };
 		DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */; };
 		DA95EF282CAD8FCF00EFAE82 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */; };
 		DA95EF2D2CADA33C00EFAE82 /* pull_request_template.md in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF2B2CADA33C00EFAE82 /* pull_request_template.md */; };
@@ -44,6 +45,7 @@
 		ADAA27C5231BC02B00365194 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		DA954F292CB258FE00A36CA7 /* LocationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGroup.swift; sourceTree = "<group>"; };
 		DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		DA95EF292CADA33C00EFAE82 /* run-swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "run-swiftlint.yml"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		ADAA27C8231BC3E500365194 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA954F292CB258FE00A36CA7 /* LocationGroup.swift */,
 				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
 				DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */,
 				DAB9D5292CAFD60800F9218C /* FavoritesTableViewCell.swift */,
@@ -240,6 +243,7 @@
 			files = (
 				7D64259624473AE800F1DD90 /* WeatherDataManager.swift in Sources */,
 				7D6425982451AEA500F1DD90 /* WeatherData.swift in Sources */,
+				DA954F2A2CB258FE00A36CA7 /* LocationGroup.swift in Sources */,
 				DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */,
 				ADAA27B1231BBFAF00365194 /* AppDelegate.swift in Sources */,
 				DA95EF502CAE4AAE00EFAE82 /* WeatherViewController.swift in Sources */,
