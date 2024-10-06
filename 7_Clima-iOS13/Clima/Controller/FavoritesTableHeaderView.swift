@@ -51,7 +51,11 @@ class FavoritesTableHeaderView: UIView {
             return
         }
         nameLabel.text = group.name
-        expandedStatusImageView.image = group.isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.forward")
+//        expandedStatusImageView.image = group.isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.forward")
+        UIView.animate(withDuration: 2.0) {
+            let rotationDegrees: CGFloat = group.isExpanded ? 90 : 0
+            self.expandedStatusImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * rotationDegrees)
+        }
     }
             
     // MARK: - @IBAction
