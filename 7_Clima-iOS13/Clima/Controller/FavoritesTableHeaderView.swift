@@ -16,12 +16,11 @@ class FavoritesTableHeaderView: UIView {
 
     // MARK: - Properties
     
-    var group: LocationGroup? {
+    var locationGroup: LocationGroup? {
         didSet {
             configureUI()
         }
     }
-//    var tapAction: (() -> Void)?
     weak var delegate: FavoritesTableHeaderViewDelegate?
         
     @IBOutlet private weak var nameLabel: UILabel!
@@ -38,36 +37,30 @@ class FavoritesTableHeaderView: UIView {
         super.init(coder: aDecoder)
     }
     
-    // MARK: - Helpers
+    // MARK: - @IBAction
+    
+    @IBAction private func handleViewTapped(_ sender: UITapGestureRecognizer) {
+        delegate?.tableHeaderViewDidSelect(self)
+    }
+        
+    // MARK: - View
     
     private func loadNib() {
         guard let view = Bundle.main.loadNibNamed("FavoritesTableHeaderView", owner: self, options: nil)?.first as? UIView else {
             return
         }
-        view.frame = self.bounds
-        self.addSubview(view)
+        view.frame = bounds
+        addSubview(view)
     }
     
-    // MARK: - View
-    
-    func configureUI() {
-        guard let group else {
+    private func configureUI() {
+        guard let locationGroup else {
             return
         }
-        nameLabel.text = group.name
-//        expandedStatusImageView.image = group.isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.forward")
+        nameLabel.text = locationGroup.name
         UIView.animate(withDuration: 0.1) {
-            let rotationDegrees: CGFloat = group.isExpanded ? 90 : 0
+            let rotationDegrees: CGFloat = locationGroup.isExpanded ? 90 : 0
             self.expandedStatusImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * rotationDegrees)
         }
-    }
-            
-    // MARK: - @IBAction
-    
-    @IBAction private func handleViewTapped(_ sender: UITapGestureRecognizer) {
-        guard let group else {
-            return
-        }
-        delegate?.tableHeaderViewDidSelect(self)
     }
 }

@@ -19,20 +19,10 @@ class FavoritesTableViewCell: UITableViewCell {
     }
     
     @IBOutlet private weak var nameLabel: UILabel!
-    
-    // MARK: - LifeCycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-            
+                
     // MARK: - View
     
-    func configureUI() {
+    private func configureUI() {
         guard let location else {
             return
         }

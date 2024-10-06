@@ -13,36 +13,33 @@ class FavoritesViewController: UIViewController {
     // MARK: - Properties
     
     private var locationGroups = LocationGroup.definedData
-    
     @IBOutlet private weak var tableView: UITableView!
             
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "navTest"
-        let backViewButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
-                                             style: .plain,
-                                             target: self,
-                                             action: #selector(backViewButtonTapped))
-        self.navigationItem.leftBarButtonItem = backViewButton
-        
+        setupNavigationView()
         tableView.register(
             UINib(nibName: "FavoritesTableViewCell", bundle: nil),
             forCellReuseIdentifier: "favorites_tableview_cell"
         )
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
         
-    // MARK: - NavigationItem Actions
+    // MARK: - Setup NavigationView
+    
+    private func setupNavigationView() {
+        self.title = "navTest"
+        let backViewButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(backViewButtonTapped))
+        self.navigationItem.leftBarButtonItem = backViewButton
+    }
     
     @objc
-    func backViewButtonTapped() {
+    private func backViewButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
 }
@@ -50,7 +47,10 @@ class FavoritesViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension FavoritesViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let location = locationGroups[indexPath.section].locations[indexPath.row]
+        print(location.name)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -66,8 +66,7 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = FavoritesTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
         view.delegate = self
-        view.group = locationGroups[section]
-        view.configureUI()
+        view.locationGroup = locationGroups[section]
         return view
     }
     
@@ -89,19 +88,14 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.location = locationGroups[indexPath.section].locations[indexPath.row]
         return cell
     }
-    
-    // MARK: - Selected
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let location = locationGroups[indexPath.section].locations[indexPath.row]
-        print(location.name)
-    }
 }
+
+// MARK: - FavoritesTableHeaderViewDelegate
 
 extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
     func tableHeaderViewDidSelect(_ headerView: FavoritesTableHeaderView) {
         guard
-            let group = headerView.group,
+            let group = headerView.locationGroup,
             let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
@@ -117,7 +111,8 @@ extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
                 contentsOf: LocationGroup.definedData[groupIndex].locations, at: 0
             )
             self.tableView.beginUpdates()
-            self.tableView.insertRows(at: indexPaths, with: .bottom)
+            // TODO: 本当は.bottomとしたい
+            self.tableView.insertRows(at: indexPaths, with: .fade)
             self.tableView.endUpdates()
         } else {
             // グループが閉じられた場合
@@ -128,11 +123,10 @@ extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
             
             locationGroups[groupIndex].locations.removeAll()
             self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: indexPaths, with: .top)
+            self.tableView.deleteRows(at: indexPaths, with: .fade)
             self.tableView.endUpdates()
         }
         
-        headerView.group = locationGroups[groupIndex]
-        print(locationGroups[groupIndex])
+        headerView.locationGroup = locationGroups[groupIndex]
     }
 }

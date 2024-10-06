@@ -11,7 +11,7 @@ import Foundation
 // MARK: - LocationGroup
 
 struct LocationGroup {
-    let uuid = UUID()
+    private let uuid = UUID()
     let name: String
     var locations: [Location]
     var isExpanded: Bool = true
@@ -25,7 +25,7 @@ extension LocationGroup: Identifiable {
 
 extension LocationGroup {
     struct Location {
-        let uuid = UUID()
+        private let uuid = UUID()
         var name: String
     }
 }
