@@ -39,4 +39,3 @@ class FavoritesTableViewCell: UITableViewCell {
         nameLabel.text = location.name
     }
 }
-

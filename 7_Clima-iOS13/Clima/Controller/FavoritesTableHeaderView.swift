@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol FavoritesTableHeaderViewDelegate: AnyObject {
+    func didTapHeaderView(group: FavoritedLocationGroup)
+}
+
 class FavoritesTableHeaderView: UIView {
 
     // MARK: - Properties
+    
+    var group: FavoritedLocationGroup?
+//    var tapAction: (() -> Void)?
+    weak var delegate: FavoritesTableHeaderViewDelegate?
         
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var expandedStatusImageView: UIImageView!
@@ -26,8 +34,6 @@ class FavoritesTableHeaderView: UIView {
         super.init(coder: aDecoder)
     }
     
-    // MARK: - View
-    
     // MARK: - Helpers
     
     private func loadNib() {
@@ -36,5 +42,25 @@ class FavoritesTableHeaderView: UIView {
         }
         view.frame = self.bounds
         self.addSubview(view)
+    }
+    
+    // MARK: - View
+    
+    func configureUI() {
+        guard let group else {
+            return
+        }
+        nameLabel.text = group.name
+        expandedStatusImageView.image = group.isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.forward")
+    }
+            
+    // MARK: - @IBAction
+    
+    @IBAction private func handleViewTapped(_ sender: UITapGestureRecognizer) {
+        guard let group else {
+            return
+        }
+//        tapAction?()
+        delegate?.didTapHeaderView(group: group)
     }
 }

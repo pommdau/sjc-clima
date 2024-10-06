@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         let window = UIWindow(windowScene: scene)
-        let weatherViewController = WeatherViewController()
-        let navigationViewController = UINavigationController(rootViewController: weatherViewController)
+//        let weatherViewController = WeatherViewController()
+        let rootVC = FavoritesViewController()
+        let navigationViewController = UINavigationController(rootViewController: rootVC)
         window.rootViewController = navigationViewController
         window.makeKeyAndVisible()
         self.window = window

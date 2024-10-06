@@ -18,6 +18,7 @@ struct FavoritedLocationGroup: Identifiable {
     let name: String
     var id: String { uuid.uuidString }
     let locations: [FavoritedLocation]
+    var isExpanded: Bool = true
 }
 
 extension FavoritedLocationGroup {
@@ -97,6 +98,9 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = FavoritesTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
+        view.delegate = self
+        view.group = locationGroups[section]
+        view.configureUI()
         return view
     }
     
@@ -107,7 +111,8 @@ extension FavoritesViewController: UITableViewDataSource {
     // MARK: - Cells
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        locationGroups[section].locations.count
+        let group = locationGroups[section]
+        return group.isExpanded ? group.locations.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,5 +128,15 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locationGroups[indexPath.section].locations[indexPath.row]
         print(location.name)
+    }
+}
+
+extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
+    func didTapHeaderView(group: FavoritedLocationGroup) {
+        guard let index = locationGroups.firstIndex(where: { $0.id == group.id }) else {
+            return
+        }
+        locationGroups[index].isExpanded.toggle()
+        locationsTableView.reloadSections(.init(integer: index), with: .automatic)
     }
 }

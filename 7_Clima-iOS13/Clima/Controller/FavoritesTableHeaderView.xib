@@ -38,6 +38,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemMintColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="lUV-Om-oom" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IX2-9g-t8y"/>
                 <constraint firstItem="nMZ-kO-dQv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="KJc-4S-TkX"/>
@@ -45,8 +46,16 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lUV-Om-oom" secondAttribute="trailing" constant="20" id="hC5-Hr-W0M"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="jHj-Zv-ggO" appends="YES" id="mXc-mn-FVC"/>
+            </connections>
             <point key="canvasLocation" x="282.44274809160305" y="159.1549295774648"/>
         </view>
+        <tapGestureRecognizer id="jHj-Zv-ggO">
+            <connections>
+                <action selector="handleViewTapped:" destination="-1" id="IiJ-2w-GKZ"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="lessthan" catalog="system" width="128" height="108"/>
