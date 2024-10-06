@@ -98,18 +98,27 @@ extension FavoritesViewController: UITableViewDataSource {
 
 extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
     func didTapHeaderView(group: LocationGroup) {
-        guard let index = locationGroups.firstIndex(where: { $0.id == group.id }) else {
+        guard let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
-//        locationGroups[index].isExpanded.toggle()
+        locationGroups[groupIndex].isExpanded.toggle()
         
-        locationGroups[0].locations.insert(.init(name: "hoge"), at: 0)
+        let indexPaths = (0..<locationGroups[groupIndex].locations.count).map {
+            IndexPath(row: $0, section: groupIndex)
+        }
         
-        self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)],
-                                  with: .automatic)
-        self.tableView.endUpdates()
-        
-//        tableView.reloadSections(.init(integer: index), with: .automatic)
+        if locationGroups[groupIndex].isExpanded {
+            // グループが開かれた場合
+            locationGroups[groupIndex].locations.insert(contentsOf: [.init(name: "New")], at: 0)
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: groupIndex)], with: .right)
+            self.tableView.endUpdates()
+        } else {
+            // グループが閉じられた場合
+            locationGroups[groupIndex].locations.removeAll()
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
+        }
     }
 }
