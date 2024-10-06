@@ -101,7 +101,15 @@ extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
         guard let index = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
-        locationGroups[index].isExpanded.toggle()
-        tableView.reloadSections(.init(integer: index), with: .automatic)
+//        locationGroups[index].isExpanded.toggle()
+        
+        locationGroups[0].locations.insert(.init(name: "hoge"), at: 0)
+        
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)],
+                                  with: .automatic)
+        self.tableView.endUpdates()
+        
+//        tableView.reloadSections(.init(integer: index), with: .automatic)
     }
 }

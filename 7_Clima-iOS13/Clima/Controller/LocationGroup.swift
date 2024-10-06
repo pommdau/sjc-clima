@@ -13,7 +13,7 @@ import Foundation
 struct LocationGroup {
     let uuid = UUID()
     let name: String
-    let locations: [Location]
+    var locations: [Location]
     var isExpanded: Bool = true
 }
 
