@@ -10,6 +10,15 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
         
+    // MARK: - Static Properties
+    
+    // MARK: NibName and ReuseIdentifier
+    
+    static var nibName: String {
+        String(describing: self) // "FavoritesTableViewCell"を返す
+    }
+    static let reuseIdentifier = "favorites-tableview-cell"
+    
     // MARK: - Properties
     
     var location: LocationGroup.Location? {

@@ -18,13 +18,13 @@ class FavoritesViewController: UIViewController {
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
+        print(FavoritesTableViewCell.nibName)
         super.viewDidLoad()
         setupNavigationView()
         tableView.register(
-            UINib(nibName: "FavoritesTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "favorites_tableview_cell"
-        )
-        
+            UINib(nibName: FavoritesTableViewCell.nibName, bundle: nil),
+            forCellReuseIdentifier: FavoritesTableViewCell.reuseIdentifier
+        )        
     }
         
     // MARK: - Setup NavigationView
@@ -49,7 +49,7 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locationGroups[indexPath.section].locations[indexPath.row]
-        print(location.name)
+        print(location.name) // TODO: 画面遷移 // swiftlint:disable:this todo
     }
 }
 
@@ -82,7 +82,10 @@ extension FavoritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favorites_tableview_cell", for: indexPath) as? FavoritesTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FavoritesTableViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? FavoritesTableViewCell else {
             return UITableViewCell()
         }
         cell.location = locationGroups[indexPath.section].locations[indexPath.row]
