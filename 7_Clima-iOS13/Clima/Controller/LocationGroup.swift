@@ -37,7 +37,7 @@ extension LocationGroup.Location: Identifiable {
 // MARK: - Defined Data
 
 extension LocationGroup {
-    static let exampleData: [LocationGroup] = [
+    static let definedData: [LocationGroup] = [
         .init(name: "EU", locations: [
             .init(name: "ベルリン"),
             .init(name: "アムステルダム"),

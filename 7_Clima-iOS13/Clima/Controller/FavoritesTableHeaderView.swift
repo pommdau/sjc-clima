@@ -9,14 +9,18 @@
 import UIKit
 
 protocol FavoritesTableHeaderViewDelegate: AnyObject {
-    func didTapHeaderView(group: LocationGroup)
+    func tableHeaderViewDidSelect(_ headerView: FavoritesTableHeaderView)
 }
 
 class FavoritesTableHeaderView: UIView {
 
     // MARK: - Properties
     
-    var group: LocationGroup?
+    var group: LocationGroup? {
+        didSet {
+            configureUI()
+        }
+    }
 //    var tapAction: (() -> Void)?
     weak var delegate: FavoritesTableHeaderViewDelegate?
         
@@ -52,7 +56,7 @@ class FavoritesTableHeaderView: UIView {
         }
         nameLabel.text = group.name
 //        expandedStatusImageView.image = group.isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.forward")
-        UIView.animate(withDuration: 2.0) {
+        UIView.animate(withDuration: 0.1) {
             let rotationDegrees: CGFloat = group.isExpanded ? 90 : 0
             self.expandedStatusImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * rotationDegrees)
         }
@@ -64,7 +68,6 @@ class FavoritesTableHeaderView: UIView {
         guard let group else {
             return
         }
-//        tapAction?()
-        delegate?.didTapHeaderView(group: group)
+        delegate?.tableHeaderViewDidSelect(self)
     }
 }

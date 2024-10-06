@@ -12,7 +12,7 @@ class FavoritesViewController: UIViewController {
         
     // MARK: - Properties
     
-    private var locationGroups = LocationGroup.exampleData
+    private var locationGroups = LocationGroup.definedData
     
     @IBOutlet private weak var tableView: UITableView!
             
@@ -47,11 +47,13 @@ class FavoritesViewController: UIViewController {
     }
 }
 
-// MARK: -
+// MARK: - UITableViewDelegate
 
 extension FavoritesViewController: UITableViewDelegate {
     
 }
+
+// MARK: - UITableViewDataSource
 
 extension FavoritesViewController: UITableViewDataSource {
     
@@ -97,28 +99,40 @@ extension FavoritesViewController: UITableViewDataSource {
 }
 
 extension FavoritesViewController: FavoritesTableHeaderViewDelegate {
-    func didTapHeaderView(group: LocationGroup) {
-        guard let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
+    func tableHeaderViewDidSelect(_ headerView: FavoritesTableHeaderView) {
+        guard
+            let group = headerView.group,
+            let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
             return
         }
         locationGroups[groupIndex].isExpanded.toggle()
-        
-        let indexPaths = (0..<locationGroups[groupIndex].locations.count).map {
-            IndexPath(row: $0, section: groupIndex)
-        }
-        
+                
         if locationGroups[groupIndex].isExpanded {
             // グループが開かれた場合
-            locationGroups[groupIndex].locations.insert(contentsOf: [.init(name: "New")], at: 0)
+            
+            let indexPaths = (0..<LocationGroup.definedData[groupIndex].locations.count).map {
+                IndexPath(row: $0, section: groupIndex)
+            }
+            locationGroups[groupIndex].locations.insert(
+                contentsOf: LocationGroup.definedData[groupIndex].locations, at: 0
+            )
             self.tableView.beginUpdates()
-            self.tableView.insertRows(at: [IndexPath(row: 0, section: groupIndex)], with: .right)
+            self.tableView.insertRows(at: indexPaths, with: .bottom)
             self.tableView.endUpdates()
         } else {
             // グループが閉じられた場合
+            
+            let indexPaths = (0..<locationGroups[groupIndex].locations.count).map {
+                IndexPath(row: $0, section: groupIndex)
+            }
+            
             locationGroups[groupIndex].locations.removeAll()
             self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: indexPaths, with: .automatic)
+            self.tableView.deleteRows(at: indexPaths, with: .top)
             self.tableView.endUpdates()
         }
+        
+        headerView.group = locationGroups[groupIndex]
+        print(locationGroups[groupIndex])
     }
 }
