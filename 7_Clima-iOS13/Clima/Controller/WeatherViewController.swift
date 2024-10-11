@@ -71,7 +71,7 @@ extension WeatherViewController {
     @IBAction private func dadJokeButtonClicked(_ sender: UIButton) {
         Task {
             do {
-                let jokeData = try await IcanhazdadjokeAPIService.shared.fetchRandomJoke()
+                let jokeData = try await APIService.shared.fetchRandomJoke()
                 dadJokeLabel.text = jokeData.joke
             } catch {
                 print(error.localizedDescription)
@@ -118,7 +118,7 @@ extension WeatherViewController {
         }
                 
         do {
-            let weatherData = try await WeatherAPIService.shared.fetchWeather(for: .city(searchedWord))
+            let weatherData = try await APIService.shared.fetchWeather(for: .city(searchedWord))
             let weatherModel = WeatherModel(from: weatherData)
             configureUI(weatherModel: weatherModel)
         } catch {
@@ -154,7 +154,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         let lon = location.coordinate.longitude
         Task {
             do {
-                let weatherData = try await WeatherAPIService.shared.fetchWeather(for: .coordinate(.init(latitude: lat, longitude: lon)))
+                let weatherData = try await APIService.shared.fetchWeather(for: .coordinate(.init(latitude: lat, longitude: lon)))
                 let weatherModel = WeatherModel(from: weatherData)
                 configureUI(weatherModel: weatherModel)
             } catch {

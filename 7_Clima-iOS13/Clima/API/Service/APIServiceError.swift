@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum APIServiceError<APIError>: Error where APIError: Codable, APIError: Error {
+enum APIServiceError {
     // APIのリクエストの作成に失敗
     case invalidRequest
     
@@ -19,7 +19,7 @@ enum APIServiceError<APIError>: Error where APIError: Codable, APIError: Error {
     case apiResponseParseError(Error)
     
     // APIからエラーレスポンスを受け取った
-    case apiError(APIError)
+    case apiError(String)
 }
 
 // MARK: - LocalizedError
@@ -33,8 +33,8 @@ extension APIServiceError: LocalizedError {
             return "通信エラーが発生しました"
         case .apiResponseParseError:
             return "データの取得に失敗しました"
-        case .apiError(let APIError):
-            return "APIでエラーが発生しました\n\(APIError.localizedDescription)"
+        case .apiError(let reason):
+            return "APIでエラーが発生しました\n\(reason)"
         }
     }
 }

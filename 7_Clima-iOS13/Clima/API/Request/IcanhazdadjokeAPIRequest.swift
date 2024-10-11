@@ -2,18 +2,18 @@
 //  IcanhazdadjokeAPIRequest.swift
 //  Clima
 //
-//  Created by HIROKI IKEUCHI on 2024/10/03.
+//  Created by HIROKI IKEUCHI on 2024/10/04.
 //  Copyright © 2024 App Brewery. All rights reserved.
 //
 
 import Foundation
 import HTTPTypes
 
-// https://icanhazdadjoke.com/api
-protocol IcanhazdadjokeAPIRequestProtocol {}
+struct IcanhazdadjokeAPIRequest {}
 
-extension APIRequestProtocol where Self: IcanhazdadjokeAPIRequestProtocol {
-    
+// MARK: - APIRequestProtocol
+
+extension IcanhazdadjokeAPIRequest: APIRequestProtocol {
     typealias Response = IcanhazdadjokeData
     
     var method: HTTPTypes.HTTPRequest.Method {
@@ -35,7 +35,7 @@ extension APIRequestProtocol where Self: IcanhazdadjokeAPIRequestProtocol {
     var queryItems: [URLQueryItem] {
         []
     }
-    
+            
     var headerFields: HTTPTypes.HTTPFields {
         var headerFields = HTTPTypes.HTTPFields()
         headerFields[.accept] = "application/json"

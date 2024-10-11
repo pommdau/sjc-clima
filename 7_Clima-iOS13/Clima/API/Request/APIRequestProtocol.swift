@@ -10,7 +10,7 @@ import Foundation
 import HTTPTypes
 
 protocol APIRequestProtocol {
-    associatedtype Response: Decodable
+    associatedtype Response: Decodable // APIの成功時のレスポンスのデータモデル型
     var method: HTTPRequest.Method { get }
     var scheme: String { get } // e.g. "https"
     var authority: String { get } // e.g. "www.example.com"

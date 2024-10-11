@@ -1,19 +1,15 @@
 //
-//  WeatherAPIRequest.swift
+//  WeatherAPIRequest+Location.swift
 //  Clima
 //
-//  Created by HIROKI IKEUCHI on 2024/10/04.
+//  Created by HIROKI IKEUCHI on 2024/10/11.
 //  Copyright © 2024 App Brewery. All rights reserved.
 //
 
 import Foundation
 
-// 名前空間の定義
-enum WeatherAPIRequest {}
-
-// MARK: - Defines
-
-extension WeatherAPIRequest {    
+struct WeatherAPIRequest {
+    
     struct Coordinate {
         var latitude: Double
         var longitude: Double
@@ -23,4 +19,6 @@ extension WeatherAPIRequest {
         case city(String)
         case coordinate(Coordinate)
     }
+    
+    let location: Location
 }
