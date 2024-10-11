@@ -115,8 +115,7 @@
 				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
 				DA1B61922CAE5C9E00BC0A28 /* API */,
 				ADAA27CA231BC3FA00365194 /* Model */,
-				ADAA27C9231BC3F200365194 /* View */,
-				ADAA27C8231BC3E500365194 /* Controller */,
+				ADAA27C9231BC3F200365194 /* ViewControllers */,
 				ADAA27B9231BBFB300365194 /* Assets.xcassets */,
 				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
 				ADAA27BE231BBFB300365194 /* Info.plist */,
@@ -126,28 +125,14 @@
 			path = Clima;
 			sourceTree = "<group>";
 		};
-		ADAA27C8231BC3E500365194 /* Controller */ = {
+		ADAA27C9231BC3F200365194 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
-				DA1A9D562CB92A9E005C06F9 /* FavoritedLocationViewController.swift */,
-				DA1A9D642CB92E03005C06F9 /* LocationViewController.swift */,
+				DA1A9D6C2CB95922005C06F9 /* WeatherViewController */,
+				DA1A9D6B2CB958E4005C06F9 /* FavoritedLocationViewController */,
+				DA1A9D6D2CB95935005C06F9 /* LocationViewController */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		ADAA27C9231BC3F200365194 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */,
-				DA1A9D5E2CB92B09005C06F9 /* FavoritedLocationViewController.xib */,
-				DA1A9D532CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib */,
-				DA1A9D522CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift */,
-				DA1A9D552CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib */,
-				DA1A9D542CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift */,
-				DA1A9D652CB92E03005C06F9 /* LocationViewController.xib */,
-			);
-			path = View;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		ADAA27CA231BC3FA00365194 /* Model */ = {
@@ -157,6 +142,37 @@
 				DA1A9D572CB92A9E005C06F9 /* LocationGroup.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DA1A9D6B2CB958E4005C06F9 /* FavoritedLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A9D562CB92A9E005C06F9 /* FavoritedLocationViewController.swift */,
+				DA1A9D5E2CB92B09005C06F9 /* FavoritedLocationViewController.xib */,
+				DA1A9D522CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift */,
+				DA1A9D532CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib */,
+				DA1A9D542CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift */,
+				DA1A9D552CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib */,
+			);
+			path = FavoritedLocationViewController;
+			sourceTree = "<group>";
+		};
+		DA1A9D6C2CB95922005C06F9 /* WeatherViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
+				DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */,
+			);
+			path = WeatherViewController;
+			sourceTree = "<group>";
+		};
+		DA1A9D6D2CB95935005C06F9 /* LocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A9D642CB92E03005C06F9 /* LocationViewController.swift */,
+				DA1A9D652CB92E03005C06F9 /* LocationViewController.xib */,
+			);
+			path = LocationViewController;
 			sourceTree = "<group>";
 		};
 		DA1B61922CAE5C9E00BC0A28 /* API */ = {
