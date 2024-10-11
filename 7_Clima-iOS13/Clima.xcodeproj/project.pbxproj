@@ -16,13 +16,15 @@
 		ADAA27C6231BC02C00365194 /* light_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C4231BC02B00365194 /* light_background.pdf */; };
 		ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C5231BC02B00365194 /* dark_background.pdf */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
-		DA1A9D582CB92A9E005C06F9 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D542CB92A9E005C06F9 /* FavoritesTableViewCell.swift */; };
-		DA1A9D592CB92A9E005C06F9 /* FavoritesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D522CB92A9E005C06F9 /* FavoritesTableHeaderView.swift */; };
-		DA1A9D5A2CB92A9E005C06F9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D562CB92A9E005C06F9 /* FavoritesViewController.swift */; };
+		DA1A9D582CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D542CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift */; };
+		DA1A9D592CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D522CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift */; };
+		DA1A9D5A2CB92A9E005C06F9 /* FavoritedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D562CB92A9E005C06F9 /* FavoritedLocationViewController.swift */; };
 		DA1A9D5B2CB92A9E005C06F9 /* LocationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D572CB92A9E005C06F9 /* LocationGroup.swift */; };
-		DA1A9D5C2CB92A9E005C06F9 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D552CB92A9E005C06F9 /* FavoritesTableViewCell.xib */; };
-		DA1A9D5D2CB92A9E005C06F9 /* FavoritesTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D532CB92A9E005C06F9 /* FavoritesTableHeaderView.xib */; };
-		DA1A9D5F2CB92B09005C06F9 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D5E2CB92B09005C06F9 /* FavoritesViewController.xib */; };
+		DA1A9D5C2CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D552CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib */; };
+		DA1A9D5D2CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D532CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib */; };
+		DA1A9D5F2CB92B09005C06F9 /* FavoritedLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D5E2CB92B09005C06F9 /* FavoritedLocationViewController.xib */; };
+		DA1A9D662CB92E03005C06F9 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D642CB92E03005C06F9 /* LocationViewController.swift */; };
+		DA1A9D672CB92E03005C06F9 /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D652CB92E03005C06F9 /* LocationViewController.xib */; };
 		DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */; };
 		DA1B61972CAE5D5700BC0A28 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61962CAE5D5700BC0A28 /* HTTPTypes */; };
 		DA1B61992CAE5D5700BC0A28 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61982CAE5D5700BC0A28 /* HTTPTypesFoundation */; };
@@ -51,13 +53,15 @@
 		ADAA27C4231BC02B00365194 /* light_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = light_background.pdf; sourceTree = "<group>"; };
 		ADAA27C5231BC02B00365194 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DA1A9D522CB92A9E005C06F9 /* FavoritesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableHeaderView.swift; sourceTree = "<group>"; };
-		DA1A9D532CB92A9E005C06F9 /* FavoritesTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableHeaderView.xib; sourceTree = "<group>"; };
-		DA1A9D542CB92A9E005C06F9 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
-		DA1A9D552CB92A9E005C06F9 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
-		DA1A9D562CB92A9E005C06F9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		DA1A9D522CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedLocationTableHeaderView.swift; sourceTree = "<group>"; };
+		DA1A9D532CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritedLocationTableHeaderView.xib; sourceTree = "<group>"; };
+		DA1A9D542CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedLocationTableViewCell.swift; sourceTree = "<group>"; };
+		DA1A9D552CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritedLocationTableViewCell.xib; sourceTree = "<group>"; };
+		DA1A9D562CB92A9E005C06F9 /* FavoritedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedLocationViewController.swift; sourceTree = "<group>"; };
 		DA1A9D572CB92A9E005C06F9 /* LocationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGroup.swift; sourceTree = "<group>"; };
-		DA1A9D5E2CB92B09005C06F9 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		DA1A9D5E2CB92B09005C06F9 /* FavoritedLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritedLocationViewController.xib; sourceTree = "<group>"; };
+		DA1A9D642CB92E03005C06F9 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		DA1A9D652CB92E03005C06F9 /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
 		DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		DA1B61AA2CAF075D00BC0A28 /* IcanhazdadjokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcanhazdadjokeData.swift; sourceTree = "<group>"; };
 		DA1B61C02CAF12EA00BC0A28 /* IcanhazdadjokeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcanhazdadjokeAPIRequest.swift; sourceTree = "<group>"; };
@@ -126,11 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
-				DA1A9D522CB92A9E005C06F9 /* FavoritesTableHeaderView.swift */,
-				DA1A9D532CB92A9E005C06F9 /* FavoritesTableHeaderView.xib */,
-				DA1A9D542CB92A9E005C06F9 /* FavoritesTableViewCell.swift */,
-				DA1A9D552CB92A9E005C06F9 /* FavoritesTableViewCell.xib */,
-				DA1A9D562CB92A9E005C06F9 /* FavoritesViewController.swift */,
+				DA1A9D562CB92A9E005C06F9 /* FavoritedLocationViewController.swift */,
+				DA1A9D642CB92E03005C06F9 /* LocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,7 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */,
-				DA1A9D5E2CB92B09005C06F9 /* FavoritesViewController.xib */,
+				DA1A9D5E2CB92B09005C06F9 /* FavoritedLocationViewController.xib */,
+				DA1A9D532CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib */,
+				DA1A9D522CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift */,
+				DA1A9D552CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib */,
+				DA1A9D542CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift */,
+				DA1A9D652CB92E03005C06F9 /* LocationViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,9 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1A9D5C2CB92A9E005C06F9 /* FavoritesTableViewCell.xib in Resources */,
-				DA1A9D5D2CB92A9E005C06F9 /* FavoritesTableHeaderView.xib in Resources */,
+				DA1A9D5C2CB92A9E005C06F9 /* FavoritedLocationTableViewCell.xib in Resources */,
+				DA1A9D5D2CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.xib in Resources */,
 				DA95EF2D2CADA33C00EFAE82 /* pull_request_template.md in Resources */,
+				DA1A9D672CB92E03005C06F9 /* LocationViewController.xib in Resources */,
 				DA95EF2E2CADA33C00EFAE82 /* run-swiftlint.yml in Resources */,
 				ADAA27CE231BC87F00365194 /* README.md in Resources */,
 				ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */,
@@ -284,7 +291,7 @@
 				DA1F582A2CAD81E900BD59C9 /* .swiftlint.yml in Resources */,
 				ADAA27BA231BBFB300365194 /* Assets.xcassets in Resources */,
 				DA95EF512CAE4AAE00EFAE82 /* WeatherViewController.xib in Resources */,
-				DA1A9D5F2CB92B09005C06F9 /* FavoritesViewController.xib in Resources */,
+				DA1A9D5F2CB92B09005C06F9 /* FavoritedLocationViewController.xib in Resources */,
 				ADAA27C6231BC02C00365194 /* light_background.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,9 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1B61CD2CAF192F00BC0A28 /* APIServiceError.swift in Sources */,
-				DA1A9D582CB92A9E005C06F9 /* FavoritesTableViewCell.swift in Sources */,
-				DA1A9D592CB92A9E005C06F9 /* FavoritesTableHeaderView.swift in Sources */,
-				DA1A9D5A2CB92A9E005C06F9 /* FavoritesViewController.swift in Sources */,
+				DA1A9D582CB92A9E005C06F9 /* FavoritedLocationTableViewCell.swift in Sources */,
+				DA1A9D592CB92A9E005C06F9 /* FavoritedLocationTableHeaderView.swift in Sources */,
+				DA1A9D5A2CB92A9E005C06F9 /* FavoritedLocationViewController.swift in Sources */,
+				DA1A9D662CB92E03005C06F9 /* LocationViewController.swift in Sources */,
 				DA1A9D5B2CB92A9E005C06F9 /* LocationGroup.swift in Sources */,
 				DA20832C2CB8EA65004B6AF8 /* WeatherAPIRequest+Location.swift in Sources */,
 				DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */,

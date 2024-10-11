@@ -1,5 +1,5 @@
 //
-//  FavoritesTableHeaderView.swift
+//  FavoritedLocationTableHeaderView.swift
 //  Clima
 //
 //  Created by HIROKI IKEUCHI on 2024/10/04.
@@ -10,13 +10,13 @@ import UIKit
 
 // MARK: - FavoritesTableHeaderViewDelegate
 
-protocol FavoritesTableHeaderViewDelegate: AnyObject {
-    func tableHeaderViewDidSelect(_ headerView: FavoritesTableHeaderView)
+protocol FavoritedLocationTableHeaderViewDelegate: AnyObject {
+    func tableHeaderViewDidSelect(_ headerView: FavoritedLocationTableHeaderView)
 }
 
 // MARK: - FavoritesTableHeaderView
 
-class FavoritesTableHeaderView: UIView {
+class FavoritedLocationTableHeaderView: UIView {
 
     // MARK: - Properties
     
@@ -25,7 +25,7 @@ class FavoritesTableHeaderView: UIView {
             configureUI()
         }
     }
-    weak var delegate: FavoritesTableHeaderViewDelegate?
+    weak var delegate: FavoritedLocationTableHeaderViewDelegate?
         
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var expandedStatusImageView: UIImageView!
@@ -50,7 +50,7 @@ class FavoritesTableHeaderView: UIView {
     // MARK: - View
     
     private func loadNib() {
-        guard let view = Bundle.main.loadNibNamed("FavoritesTableHeaderView", owner: self, options: nil)?.first as? UIView else {
+        guard let view = Bundle.main.loadNibNamed("FavoritedLocationTableHeaderView", owner: self, options: nil)?.first as? UIView else {
             return
         }
         view.frame = bounds

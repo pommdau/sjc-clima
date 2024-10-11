@@ -64,7 +64,7 @@ extension WeatherViewController {
     }
     
     @IBAction private func favoritesButtonClicked(_ sender: UIButton) {
-        let viewController = FavoritesViewController()
+        let viewController = FavoritedLocationViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

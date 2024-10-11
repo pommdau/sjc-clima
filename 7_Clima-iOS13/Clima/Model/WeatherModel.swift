@@ -14,7 +14,7 @@ struct WeatherModel {
     let temperature: Double
     
     var temperatureString: String {
-        return String(format: "%.1f", temperature)
+        String(format: "%.1f", temperature)
     }
     
     // computed property
@@ -53,4 +53,11 @@ struct WeatherModel {
         self.conditionId = data.weather[0].id
         self.temperature = data.main.temp
     }
+}
+
+// MARK: - SampleData
+
+extension WeatherModel {
+    static let berlin = WeatherModel(cityName: "Berlin", conditionId: 200, temperature: 12.22)
+    static let tokyo = WeatherModel(cityName: "Tokyo", conditionId: 800, temperature: 20.99)
 }

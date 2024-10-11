@@ -1,5 +1,5 @@
 //
-//  FavoritesTableViewCell.swift
+//  FavoritedLocationTableViewCell.swift
 //  Clima
 //
 //  Created by HIROKI IKEUCHI on 2024/10/04.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesTableViewCell: UITableViewCell {
+class FavoritedLocationTableViewCell: UITableViewCell {
         
     // MARK: - Static Properties
     
@@ -17,7 +17,7 @@ class FavoritesTableViewCell: UITableViewCell {
     static var nibName: String {
         String(describing: self) // "FavoritesTableViewCell"を返す
     }
-    static let reuseIdentifier = "favorites-tableview-cell"
+    static let reuseIdentifier = "favorited-location-tableview-cell"
     
     // MARK: - Properties
     
@@ -35,6 +35,6 @@ class FavoritesTableViewCell: UITableViewCell {
         guard let location else {
             return
         }
-        nameLabel.text = location.name
+        nameLabel.text = location.title
     }
 }

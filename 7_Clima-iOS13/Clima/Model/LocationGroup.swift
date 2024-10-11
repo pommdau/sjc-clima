@@ -26,7 +26,8 @@ extension LocationGroup: Identifiable {
 extension LocationGroup {
     struct Location {
         private let uuid = UUID()
-        var name: String
+        var title: String
+        var city: String // APIの検索時に利用される値
     }
 }
 
@@ -39,21 +40,21 @@ extension LocationGroup.Location: Identifiable {
 extension LocationGroup {
     static let definedData: [LocationGroup] = [
         .init(name: "EU", locations: [
-            .init(name: "ベルリン"),
-            .init(name: "アムステルダム"),
-            .init(name: "ロンドン"),
+            .init(title: "ベルリン", city: "berlin"),
+            .init(title: "アムステルダム", city: "amsterdam"),
+            .init(title: "ロンドン", city: "london"),
         ]),
         .init(name: "アジア", locations: [
-            .init(name: "東京"),
-            .init(name: "バンコク"),
+            .init(title: "東京", city: "tokyo"),
+            .init(title: "バンコク", city: "bangkok"),
         ]),
         .init(name: "オセアニア", locations: [
-            .init(name: "シドニー"),
-            .init(name: "メルボルン"),
-            .init(name: "ロンドン"),
+            .init(title: "シドニー", city: "sydney"),
+            .init(title: "メルボルン", city: "melbourne"),
+            .init(title: "ロンドン", city: "london"),
         ]),
         .init(name: "アフリカ", locations: [
-            .init(name: "ケープタウン"),
+            .init(title: "ケープタウン", city: "cape town"),
         ])
     ]
 }
