@@ -8,15 +8,26 @@
 
 import UIKit
 import CoreLocation
-import HTTPTypes
 
 class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var weather: WeatherModel? {
+        didSet {
+            configureWeatherUI()
+        }
+    }
+    
+    private var joke: IcanhazdadjokeData? {
+        didSet {
+            configureJokeUI()
+        }
+    }
+    
     // MARK: Properties
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     // MARK: @IBOutlet
     
@@ -31,9 +42,9 @@ class WeatherViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
         searchField.delegate = self
+        searchField.placeholder = R.string.localizable.weatherViewControllertextFieldSearchFieldPlaceholder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +56,31 @@ class WeatherViewController: UIViewController {
 //            searchField.text = ""
 //        }
 #endif
+    }
+}
+
+// MARK: - View
+
+extension WeatherViewController {
+    private func configureJokeUI() {
+        guard let joke else {
+            return
+        }
+        dadJokeLabel.text = joke.joke
+    }
+    
+    private func configureWeatherUI() {
+        guard let weather else {
+            return
+        }
+        temperatureLabel.text = weather.temperatureString
+        cityLabel.text = weather.cityName
+        conditionImageView.image = UIImage(systemSymbol: weather.conditionSymbol)
+        if weather.cityName == R.string.localizable.tokyo() {
+            self.backgroundImageView.image = R.image.backgroundTokyo()
+        } else {
+            self.backgroundImageView.image = R.image.background()
+        }
     }
 }
 
@@ -64,15 +100,14 @@ extension WeatherViewController {
     }
     
     @IBAction private func favoritesButtonClicked(_ sender: UIButton) {
-        let viewController = FavoritesViewController()
+        let viewController = FavoriteLocationGroupsViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction private func dadJokeButtonClicked(_ sender: UIButton) {
         Task {
             do {
-                let jokeData = try await APIService.shared.fetchRandomJoke()
-                dadJokeLabel.text = jokeData.joke
+                joke = try await APIService.shared.fetchRandomJoke()
             } catch {
                 print(error.localizedDescription)
             }
@@ -83,7 +118,6 @@ extension WeatherViewController {
 // MARK: - UITextFieldDelegate
 
 extension WeatherViewController: UITextFieldDelegate {
-
     // when keyboard return clicked
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.endEditing(true) // dismiss keyboard
@@ -100,8 +134,6 @@ extension WeatherViewController: UITextFieldDelegate {
                 return true
             }
         }
-        // 入力が空のとき
-        textField.placeholder = "Type something here"
         return false // check if city name is valid
     }
     
@@ -112,51 +144,34 @@ extension WeatherViewController: UITextFieldDelegate {
 // MARK: - Handle Searching
 
 extension WeatherViewController {
-    func handleFetchWeatherWithSearchedWord() async {
+    private func handleFetchWeatherWithSearchedWord() async {
         guard let searchedWord = searchField.text else {
             return
         }
-                
         do {
             let weatherData = try await APIService.shared.fetchWeather(for: .city(searchedWord))
-            let weatherModel = WeatherModel(from: weatherData)
-            configureUI(weatherModel: weatherModel)
+            self.weather = WeatherModel(from: weatherData)
         } catch {
             print(error.localizedDescription)
         }
     }
 }
 
-// MARK: - View update extension
-
-extension WeatherViewController {
-    // TODO: Viewにモデルをもたせる形に変更する // swiftlint:disable:this todo
-    private func configureUI(weatherModel: WeatherModel) {
-        temperatureLabel.text = weatherModel.temperatureString
-        cityLabel.text = weatherModel.cityName
-        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
-        
-        if weatherModel.cityName == "Tokyo" {
-            self.backgroundImageView.image = UIImage(named: "background-tokyo")
-        } else {
-            self.backgroundImageView.image = UIImage(named: "background")
-        }
-    }
-}
-
-// MARK: - CLLocation
+// MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
         }
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
         Task {
             do {
-                let weatherData = try await APIService.shared.fetchWeather(for: .coordinate(.init(latitude: lat, longitude: lon)))
-                let weatherModel = WeatherModel(from: weatherData)
-                configureUI(weatherModel: weatherModel)
+                let weatherData = try await APIService.shared.fetchWeather(for:
+                        .coordinate(.init(
+                            latitude: location.coordinate.latitude,
+                            longitude: location.coordinate.longitude)
+                        )
+                )
+                self.weather = WeatherModel(from: weatherData)
             } catch {
                 print(error.localizedDescription)
             }

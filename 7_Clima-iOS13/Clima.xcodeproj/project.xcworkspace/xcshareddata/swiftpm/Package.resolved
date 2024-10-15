@@ -1,5 +1,5 @@
 {
-  "originHash" : "0e8f16de63fb6a9573393d061b8498e87fa68ab535b2592e69c4604642f15207",
+  "originHash" : "355f43f1edb7dd6dd0da22224c7fa01a1e5b474343147f3cdc5bfdfd8b9f2ae1",
   "pins" : [
     {
       "identity" : "collectionconcurrencykit",
@@ -17,6 +17,24 @@
       "state" : {
         "revision" : "678d442c6f7828def400a70ae15968aef67ef52d",
         "version" : "1.8.3"
+      }
+    },
+    {
+      "identity" : "r.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mac-cain13/R.swift",
+      "state" : {
+        "revision" : "4ac2eb7e6157887c9f59dc5ccc5978d51546be6d",
+        "version" : "7.7.0"
+      }
+    },
+    {
+      "identity" : "sfsafesymbols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SFSafeSymbols/SFSafeSymbols",
+      "state" : {
+        "revision" : "e2e28f4e56e1769c2ec3c61c9355fc64eb7a535a",
+        "version" : "5.3.0"
       }
     },
     {
@@ -80,6 +98,15 @@
       "state" : {
         "revision" : "a853604c9e9a83ad9954c7e3d2a565273982471f",
         "version" : "7.0.2"
+      }
+    },
+    {
+      "identity" : "xcodeedit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tomlokhorst/XcodeEdit",
+      "state" : {
+        "revision" : "017d23f71fa8d025989610db26d548c44cacefae",
+        "version" : "2.10.2"
       }
     },
     {

@@ -28,13 +28,13 @@ extension APIServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidRequest:
-            return "APIリクエストの作成に失敗しました"
+            return R.string.localizable.apiServiceErrorInvalidRequest()
         case .connectionError:
-            return "通信エラーが発生しました"
+            return R.string.localizable.apiServiceErrorConnectionError()
         case .apiResponseParseError:
-            return "データの取得に失敗しました"
+            return R.string.localizable.apiServiceErrorApiResponseParseError()
         case .apiError(let reason):
-            return "APIでエラーが発生しました\n\(reason)"
+            return R.string.localizable.apiServiceErrorApiError(reason)
         }
     }
 }

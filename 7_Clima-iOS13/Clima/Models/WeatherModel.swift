@@ -7,40 +7,45 @@
 //
 
 import Foundation
+import SFSafeSymbols
 
 struct WeatherModel {
+    
+    // MARK: - Properties
+        
     let cityName: String
     let conditionId: Int
     let temperature: Double
     
     var temperatureString: String {
-        return String(format: "%.1f", temperature)
+        String(format: "%.1f", temperature)
     }
     
-    // computed property
-    var conditionName: String {
+    var conditionSymbol: SFSymbol {
         // docs https://openweathermap.org/weather-conditions
         switch conditionId / 100 {
         case 2:
-            return "cloud.bolt"
+            return SFSymbol.cloudBolt
         case 3:
-            return "cloud.drizzle"
+            return SFSymbol.cloudDrizzle
         case 5:
-            return "cloud.rain"
+            return SFSymbol.cloudRain
         case 6:
-            return "cloud.snow"
+            return SFSymbol.cloudSnow
         case 7:
-            return "cloud.fog"
+            return SFSymbol.cloudFog
         case 8:
             if conditionId == 800 {
-                return "sun.max"
+                return SFSymbol.sunMax
             } else {
-                return "cloud.bolt"
+                return SFSymbol.cloudBolt
             }
         default:
-            return "cloud"
+            return SFSymbol.cloud
         }
     }
+    
+    // MARK: - LifeCycle
     
     init(cityName: String, conditionId: Int, temperature: Double) {
         self.cityName = cityName
@@ -53,4 +58,11 @@ struct WeatherModel {
         self.conditionId = data.weather[0].id
         self.temperature = data.main.temp
     }
+}
+
+// MARK: - SampleData
+
+extension WeatherModel {
+    static let berlin = WeatherModel(cityName: R.string.localizable.favoriteLocationGroupDefinedBerlin(), conditionId: 200, temperature: 12.22)
+    static let tokyo = WeatherModel(cityName: R.string.localizable.favoriteLocationGroupDefinedTokyo(), conditionId: 800, temperature: 20.99)
 }

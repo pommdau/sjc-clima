@@ -85,7 +85,7 @@ disabled_rules:
   #- switch_case_alignment
   #- syntactic_sugar
   #- todo
-  #- trailing_comma
+  - trailing_comma # 末尾のコンマを許可
   #- trailing_newline
   #- trailing_semicolon
   - trailing_whitespace  # 空白行のスペースがあった方が追記しやすいと考えるため
