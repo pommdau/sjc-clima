@@ -14,6 +14,8 @@ final actor APIService {
     
     static let shared = APIService()
     
+    private init() {}
+    
     private func request<Request>(with request: Request) async throws(APIServiceError) ->
     Request.Response where Request: APIRequestProtocol {
         // リクエストの送信

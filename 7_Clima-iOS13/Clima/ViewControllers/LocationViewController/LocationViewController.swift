@@ -25,7 +25,7 @@ class LocationViewController: UIViewController {
     init(navigationTitle: String, weatherModel: WeatherModel) {
         self.navigationTitle = navigationTitle
         self.weatherModel = weatherModel
-        super.init(nibName: "LocationViewController", bundle: nil)
+        super.init(nibName: R.nib.locationViewController.name, bundle: nil)
     }
     
     @available(*, unavailable)
@@ -44,7 +44,13 @@ class LocationViewController: UIViewController {
         title = navigationTitle
         temperatureLabel.text = weatherModel.temperatureString
         cityLabel.text = weatherModel.cityName
-        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+        conditionImageView.image = UIImage(systemSymbol: weatherModel.conditionSymbol)
+        
+        if weatherModel.cityName == R.string.localizable.tokyo() {
+            self.backgroundImageView.image = R.image.backgroundTokyo()
+        } else {
+            self.backgroundImageView.image = R.image.background()
+        }
     }
 }
 

@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Clima
+
+  Created by HIROKI IKEUCHI on 2024/10/15.
+  Copyright © 2024 App Brewery. All rights reserved.
+*/
+
+/* City Name */
+
+"tokyo" = "Tokyo";
+
+/* By Class */
+
+"favoriteLocationGroup.defined.eu" = "EU";
+"favoriteLocationGroup.defined.berlin" = "ベルリン";
+"favoriteLocationGroup.defined.amsterdam" = "アムステルダム";
+"favoriteLocationGroup.defined.london" = "ロンドン";
+"favoriteLocationGroup.defined.asia" = "アジア";
+"favoriteLocationGroup.defined.tokyo" = "東京";
+"favoriteLocationGroup.defined.bangkok" = "バンコク";
+"favoriteLocationGroup.defined.oceania" = "オセアニア";
+"favoriteLocationGroup.defined.sydney" = "シドニー";
+"favoriteLocationGroup.defined.melbourne" = "メルボルン";
+"favoriteLocationGroup.defined.london" = "ロンドン";
+"favoriteLocationGroup.defined.africa" = "アフリカ";
+"favoriteLocationGroup.defined.cape town" = "ケープタウン";
+
+"weatherViewControllertextField.searchField.placeholder" = "都市名を入力";
+
+"apiServiceError.invalidRequest" = "APIリクエストの作成に失敗しました";
+"apiServiceError.connectionError" = "通信エラーが発生しました";
+"apiServiceError.apiResponseParseError" = "データの取得に失敗しました";
+"apiServiceError.apiError" = "APIでエラーが発生しました\n\(%@)";
+
+"favoritedLocationViewController.title" = "お気に入り";
+

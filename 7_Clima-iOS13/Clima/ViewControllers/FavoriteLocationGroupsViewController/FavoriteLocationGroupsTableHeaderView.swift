@@ -1,5 +1,5 @@
 //
-//  FavoritedLocationTableHeaderView.swift
+//  FavoriteLocationGroupsTableHeaderView.swift
 //  Clima
 //
 //  Created by HIROKI IKEUCHI on 2024/10/04.
@@ -11,16 +11,16 @@ import UIKit
 // MARK: - FavoritesTableHeaderViewDelegate
 
 protocol FavoritedLocationTableHeaderViewDelegate: AnyObject {
-    func tableHeaderViewDidSelect(_ headerView: FavoritedLocationTableHeaderView)
+    func tableHeaderViewDidSelect(_ headerView: FavoriteLocationGroupsTableHeaderView)
 }
 
 // MARK: - FavoritesTableHeaderView
 
-class FavoritedLocationTableHeaderView: UIView {
+class FavoriteLocationGroupsTableHeaderView: UIView {
 
     // MARK: - Properties
     
-    var locationGroup: LocationGroup? {
+    var locationGroup: FavoriteLocationGroup? {
         didSet {
             configureUI()
         }
@@ -50,7 +50,7 @@ class FavoritedLocationTableHeaderView: UIView {
     // MARK: - View
     
     private func loadNib() {
-        guard let view = Bundle.main.loadNibNamed("FavoritedLocationTableHeaderView", owner: self, options: nil)?.first as? UIView else {
+        guard let view = R.nib.favoriteLocationGroupsTableHeaderView.firstView(withOwner: self) else {
             return
         }
         view.frame = bounds

@@ -8,30 +8,26 @@
 
 import UIKit
 
-class FavoritedLocationViewController: UIViewController {
+class FavoriteLocationGroupsViewController: UIViewController {
         
     // MARK: - Properties
     
-    private var locationGroups = LocationGroup.definedData
+    private var locationGroups = FavoriteLocationGroup.defined
     @IBOutlet private weak var tableView: UITableView!
             
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
-        print(FavoritedLocationTableViewCell.nibName)
         super.viewDidLoad()
         setupNavigationView()
-        tableView.register(
-            UINib(nibName: FavoritedLocationTableViewCell.nibName, bundle: nil),
-            forCellReuseIdentifier: FavoritedLocationTableViewCell.reuseIdentifier
-        )        
+        tableView.register(R.nib.favoriteLocationGroupsTableViewCell)
     }
         
     // MARK: - Setup NavigationView
     
     private func setupNavigationView() {
-        self.title = "お気に入り"
-        let backViewButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+        self.title = R.string.localizable.favoritedLocationViewControllerTitle()
+        let backViewButton = UIBarButtonItem(image: UIImage(systemSymbol: .chevronBackward),
                                              style: .plain,
                                              target: self,
                                              action: #selector(backViewButtonTapped))
@@ -46,14 +42,14 @@ class FavoritedLocationViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension FavoritedLocationViewController: UITableViewDelegate {
+extension FavoriteLocationGroupsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let location = locationGroups[indexPath.section].locations[indexPath.row]
-                
         Task {
             let weatherData: WeatherData
             do {
-                weatherData = try await APIService.shared.fetchWeather(for: .city(location.city))
+                weatherData = try await APIService.shared.fetchWeather(for: .city(location.cityName))
             } catch {
                 print(error.localizedDescription)
                 return
@@ -69,7 +65,7 @@ extension FavoritedLocationViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 
-extension FavoritedLocationViewController: UITableViewDataSource {
+extension FavoriteLocationGroupsViewController: UITableViewDataSource {
     
     // MARK: - Sections
     
@@ -78,7 +74,7 @@ extension FavoritedLocationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = FavoritedLocationTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
+        let view = FavoriteLocationGroupsTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
         view.delegate = self
         view.locationGroup = locationGroups[section]
         return view
@@ -97,9 +93,9 @@ extension FavoritedLocationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FavoritedLocationTableViewCell.reuseIdentifier,
+            withIdentifier: R.reuseIdentifier.favoriteLocationGroupsTableViewCell,
             for: indexPath
-        ) as? FavoritedLocationTableViewCell else {
+        ) else {
             return UITableViewCell()
         }
         cell.location = locationGroups[indexPath.section].locations[indexPath.row]
@@ -109,8 +105,8 @@ extension FavoritedLocationViewController: UITableViewDataSource {
 
 // MARK: - FavoritesTableHeaderViewDelegate
 
-extension FavoritedLocationViewController: FavoritedLocationTableHeaderViewDelegate {
-    func tableHeaderViewDidSelect(_ headerView: FavoritedLocationTableHeaderView) {
+extension FavoriteLocationGroupsViewController: FavoritedLocationTableHeaderViewDelegate {
+    func tableHeaderViewDidSelect(_ headerView: FavoriteLocationGroupsTableHeaderView) {
         guard
             let group = headerView.locationGroup,
             let groupIndex = locationGroups.firstIndex(where: { $0.id == group.id }) else {
@@ -123,11 +119,11 @@ extension FavoritedLocationViewController: FavoritedLocationTableHeaderViewDeleg
         // 開閉処理をアニメーション付きで行う
         if locationGroups[groupIndex].isExpanded {
             // グループが開かれた場合
-            let indexPaths = (0..<LocationGroup.definedData[groupIndex].locations.count).map {
+            let indexPaths = (0..<FavoriteLocationGroup.defined[groupIndex].locations.count).map {
                 IndexPath(row: $0, section: groupIndex)
             }
             locationGroups[groupIndex].locations.insert(
-                contentsOf: LocationGroup.definedData[groupIndex].locations, at: 0
+                contentsOf: FavoriteLocationGroup.defined[groupIndex].locations, at: 0
             )
             self.tableView.beginUpdates()
             // TODO: 本当は.bottomとしたい // swiftlint:disable:this todo
@@ -150,5 +146,5 @@ extension FavoritedLocationViewController: FavoritedLocationTableHeaderViewDeleg
 }
 
 #Preview {
-    FavoritedLocationViewController()
+    FavoriteLocationGroupsViewController()
 }
