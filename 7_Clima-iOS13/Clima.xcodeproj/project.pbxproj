@@ -119,7 +119,7 @@
 				ADAA27B0231BBFAF00365194 /* AppDelegate.swift */,
 				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
 				DA1B61922CAE5C9E00BC0A28 /* API */,
-				ADAA27CA231BC3FA00365194 /* Model */,
+				ADAA27CA231BC3FA00365194 /* Models */,
 				ADAA27C9231BC3F200365194 /* ViewControllers */,
 				DA1A9D7C2CBE16EF005C06F9 /* Resources */,
 			);
@@ -136,14 +136,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		ADAA27CA231BC3FA00365194 /* Model */ = {
+		ADAA27CA231BC3FA00365194 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7DB97A2B24585AB800C3BB03 /* WeatherModel.swift */,
 				DA231BB82CBE3B6C00AC995A /* FavoriteLocation.swift */,
 				DA1A9D572CB92A9E005C06F9 /* FavoriteLocationGroup.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DA1A9D6B2CB958E4005C06F9 /* FavoriteLocationGroupsViewController */ = {

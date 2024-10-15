@@ -59,6 +59,31 @@ class WeatherViewController: UIViewController {
     }
 }
 
+// MARK: - View
+
+extension WeatherViewController {
+    private func configureJokeUI() {
+        guard let joke else {
+            return
+        }
+        dadJokeLabel.text = joke.joke
+    }
+    
+    private func configureWeatherUI() {
+        guard let weather else {
+            return
+        }
+        temperatureLabel.text = weather.temperatureString
+        cityLabel.text = weather.cityName
+        conditionImageView.image = UIImage(systemSymbol: weather.conditionSymbol)
+        if weather.cityName == R.string.localizable.tokyo() {
+            self.backgroundImageView.image = R.image.backgroundTokyo()
+        } else {
+            self.backgroundImageView.image = R.image.background()
+        }
+    }
+}
+
 // MARK: - @IBAction
 
 extension WeatherViewController {
@@ -132,32 +157,7 @@ extension WeatherViewController {
     }
 }
 
-// MARK: - View update extension
-
-extension WeatherViewController {
-    private func configureJokeUI() {
-        guard let joke else {
-            return
-        }
-        dadJokeLabel.text = joke.joke
-    }
-    
-    private func configureWeatherUI() {
-        guard let weather else {
-            return
-        }
-        temperatureLabel.text = weather.temperatureString
-        cityLabel.text = weather.cityName
-        conditionImageView.image = UIImage(systemSymbol: weather.conditionSymbol)                
-        if weather.cityName == R.string.localizable.tokyo() {
-            self.backgroundImageView.image = R.image.backgroundTokyo()
-        } else {
-            self.backgroundImageView.image = R.image.background()
-        }
-    }
-}
-
-// MARK: - CLLocation
+// MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
