@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LocationViewController: UIViewController {
+class FavoriteLocationViewController: UIViewController {
     
     // MARK: - Properties
         
     let navigationTitle: String
-    let weatherModel: WeatherModel
+    let weather: WeatherModel
     
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var conditionImageView: UIImageView!
@@ -22,10 +22,10 @@ class LocationViewController: UIViewController {
     
     // MARK: - LifeCycle
         
-    init(navigationTitle: String, weatherModel: WeatherModel) {
+    init(navigationTitle: String, weather: WeatherModel) {
         self.navigationTitle = navigationTitle
-        self.weatherModel = weatherModel
-        super.init(nibName: R.nib.locationViewController.name, bundle: nil)
+        self.weather = weather
+        super.init(nibName: R.nib.favoriteLocationViewController.name, bundle: nil)
     }
     
     @available(*, unavailable)
@@ -42,11 +42,11 @@ class LocationViewController: UIViewController {
         
     private func configureUI() {
         title = navigationTitle
-        temperatureLabel.text = weatherModel.temperatureString
-        cityLabel.text = weatherModel.cityName
-        conditionImageView.image = UIImage(systemSymbol: weatherModel.conditionSymbol)
+        temperatureLabel.text = weather.temperatureString
+        cityLabel.text = weather.cityName
+        conditionImageView.image = UIImage(systemSymbol: weather.conditionSymbol)
         
-        if weatherModel.cityName == R.string.localizable.tokyo() {
+        if weather.cityName == R.string.localizable.tokyo() {
             self.backgroundImageView.image = R.image.backgroundTokyo()
         } else {
             self.backgroundImageView.image = R.image.background()
@@ -57,9 +57,9 @@ class LocationViewController: UIViewController {
 // MARK: - Previews
 
 #Preview("ベルリン") {
-    LocationViewController(navigationTitle: "ベルリン", weatherModel: .berlin)
+    FavoriteLocationViewController(navigationTitle: "ベルリン", weather: .berlin)
 }
 
 #Preview("東京") {
-    LocationViewController(navigationTitle: "東京", weatherModel: .tokyo)
+    FavoriteLocationViewController(navigationTitle: "東京", weather: .tokyo)
 }

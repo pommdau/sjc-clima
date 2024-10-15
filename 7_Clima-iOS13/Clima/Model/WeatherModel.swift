@@ -10,6 +10,9 @@ import Foundation
 import SFSafeSymbols
 
 struct WeatherModel {
+    
+    // MARK: - Properties
+        
     let cityName: String
     let conditionId: Int
     let temperature: Double
@@ -18,7 +21,6 @@ struct WeatherModel {
         String(format: "%.1f", temperature)
     }
     
-    // computed property
     var conditionSymbol: SFSymbol {
         // docs https://openweathermap.org/weather-conditions
         switch conditionId / 100 {
@@ -42,6 +44,8 @@ struct WeatherModel {
             return SFSymbol.cloud
         }
     }
+    
+    // MARK: - LifeCycle
     
     init(cityName: String, conditionId: Int, temperature: Double) {
         self.cityName = cityName

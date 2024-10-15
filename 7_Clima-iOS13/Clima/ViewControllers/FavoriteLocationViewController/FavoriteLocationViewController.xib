@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationViewController" customModule="Clima" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteLocationViewController" customModule="Clima" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="49C-S9-eE9" id="U0m-AD-rlG"/>
                 <outlet property="cityLabel" destination="sHz-mO-cKm" id="FGr-z5-Xdm"/>

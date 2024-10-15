@@ -9,12 +9,10 @@
 import UIKit
 
 class FavoriteLocationGroupsTableViewCell: UITableViewCell {
-        
-    // MARK: - Static Properties
-        
+                
     // MARK: - Properties
     
-    var location: FavoriteLocationGroup.FavoriteLocation? {
+    var location: FavoriteLocation? {
         didSet {
             configureUI()
         }

@@ -33,5 +33,5 @@
 "apiServiceError.apiResponseParseError" = "データの取得に失敗しました";
 "apiServiceError.apiError" = "APIでエラーが発生しました\n\(%@)";
 
-"favoritedLocationViewController.title" = "お気に入り";
+"favoriteLocationViewController.title" = "お気に入り";
 

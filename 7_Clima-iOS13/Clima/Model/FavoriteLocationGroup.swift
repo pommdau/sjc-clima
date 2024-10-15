@@ -21,20 +21,6 @@ extension FavoriteLocationGroup: Identifiable {
     var id: String { uuid.uuidString }
 }
 
-// MARK: - LocationGroup.Location
-
-extension FavoriteLocationGroup {
-    struct FavoriteLocation {
-        private let uuid = UUID()
-        var title: String
-        var cityName: String // APIの検索時に利用される値
-    }
-}
-
-extension FavoriteLocationGroup.FavoriteLocation: Identifiable {
-    var id: String { uuid.uuidString }
-}
-
 // MARK: - Defined Data
 
 extension FavoriteLocationGroup {

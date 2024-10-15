@@ -1,5 +1,5 @@
 //
-//  FavoritedLocationViewController.swift
+//  FavoriteLocationGroupsViewController.swift
 //  Clima
 //
 //  Created by HIROKI IKEUCHI on 2024/10/02.
@@ -26,7 +26,7 @@ class FavoriteLocationGroupsViewController: UIViewController {
     // MARK: - Setup NavigationView
     
     private func setupNavigationView() {
-        self.title = R.string.localizable.favoritedLocationViewControllerTitle()
+        self.title = R.string.localizable.favoriteLocationViewControllerTitle()
         let backViewButton = UIBarButtonItem(image: UIImage(systemSymbol: .chevronBackward),
                                              style: .plain,
                                              target: self,
@@ -55,10 +55,10 @@ extension FavoriteLocationGroupsViewController: UITableViewDelegate {
                 return
             }
             let weatherModel = WeatherModel(from: weatherData)
-            let locationViewController = LocationViewController(
-                navigationTitle: location.title, weatherModel: weatherModel
+            let favoriteLocationViewController = FavoriteLocationViewController(
+                navigationTitle: location.title, weather: weatherModel
             )
-            navigationController?.pushViewController(locationViewController, animated: true)
+            navigationController?.pushViewController(favoriteLocationViewController, animated: true)
         }
     }
 }

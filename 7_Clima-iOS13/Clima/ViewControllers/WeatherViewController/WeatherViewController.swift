@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import HTTPTypes
 
 class WeatherViewController: UIViewController {
     
@@ -164,13 +163,15 @@ extension WeatherViewController: CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
         Task {
             do {
-                let weatherData = try await APIService.shared.fetchWeather(for: .coordinate(.init(latitude: lat, longitude: lon)))
+                let weatherData = try await APIService.shared.fetchWeather(for:
+                        .coordinate(.init(
+                            latitude: location.coordinate.latitude,
+                            longitude: location.coordinate.longitude)
+                        )
+                )
                 self.weather = WeatherModel(from: weatherData)
-                
             } catch {
                 print(error.localizedDescription)
             }
