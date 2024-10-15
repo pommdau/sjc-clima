@@ -8,8 +8,8 @@
 
 ## Checklist
 
-- [] Format code with SwiftLint (<kbd>⌘B</kbd> in Xcode)
-- [] Resolve Xcode warning
+- [ ] Format code with SwiftLint (<kbd>⌘B</kbd> in Xcode)
+- [ ] Resolve Xcode warning
 
 ## Reference(s) (Optional)
 

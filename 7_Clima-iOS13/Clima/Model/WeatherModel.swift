@@ -42,4 +42,15 @@ struct WeatherModel {
         }
     }
     
+    init(cityName: String, conditionId: Int, temperature: Double) {
+        self.cityName = cityName
+        self.conditionId = conditionId
+        self.temperature = temperature
+    }
+    
+    init(from data: WeatherData) {
+        self.cityName = data.name
+        self.conditionId = data.weather[0].id
+        self.temperature = data.main.temp
+    }
 }

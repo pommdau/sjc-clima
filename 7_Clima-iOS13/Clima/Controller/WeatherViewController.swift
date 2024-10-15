@@ -8,60 +8,92 @@
 
 import UIKit
 import CoreLocation
+import HTTPTypes
 
 class WeatherViewController: UIViewController {
     
+    // MARK: - Properties
+    
     // MARK: Properties
-    var weatherManager = WeatherDataManager()
+    
     let locationManager = CLLocationManager()
     
+    // MARK: @IBOutlet
+    
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var conditionImageView: UIImageView!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var searchField: UITextField!
-    @IBOutlet private weak var backgroundImageView: UIImageView!
-    
+    @IBOutlet private weak var dadJokeLabel: UITextView!
+        
+    // MARK: - LifeCycle
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
-        weatherManager.delegate = self
         searchField.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+#if DEBUG
+//        Task {
+//            searchField.text = "Tokyo"
+//            await handleFetchWeatherWithSearchedWord()
+//            searchField.text = ""
+//        }
+#endif
     }
 }
 
-// MARK: - TextField extension
+// MARK: - @IBAction
 
-extension WeatherViewController: UITextFieldDelegate {
+extension WeatherViewController {
     @IBAction private func searchBtnClicked(_ sender: UIButton) {
         searchField.endEditing(true) // dismiss keyboard
-        if let text = searchField.text {
-            print(text)
-        }
-        searchWeather()
-    }
-    
-    func searchWeather() {
-        if let cityName = searchField.text {
-            // 都市を検索するごとに、コンソールに以下のログを出す
-            print("action: serach, city: \(cityName)")
-            weatherManager.fetchWeather(cityName)
+        Task {
+            await handleFetchWeatherWithSearchedWord()
         }
     }
     
+    @IBAction private func locationButtonClicked(_ sender: UIButton) {
+        locationManager.requestWhenInUseAuthorization() // Get permission
+        locationManager.requestLocation()
+    }
+    
+    @IBAction private func favoritesButtonClicked(_ sender: UIButton) {
+        let viewController = FavoritesViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction private func dadJokeButtonClicked(_ sender: UIButton) {
+        Task {
+            do {
+                let jokeData = try await APIService.shared.fetchRandomJoke()
+                dadJokeLabel.text = jokeData.joke
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension WeatherViewController: UITextFieldDelegate {
+
     // when keyboard return clicked
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.endEditing(true) // dismiss keyboard
-        if let text = searchField.text {
-            print(text)
+        Task {
+            await handleFetchWeatherWithSearchedWord()
         }
-        searchWeather()
         return true
     }
     
-    // when textfield deselected
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        // by using "textField" (not "searchField") this applied to any textField in this Controller(cuz of delegate = self)
         if let text = textField.text {
             if !text.isEmpty {
                 // 有効なテキストが入力されている場合
@@ -74,59 +106,63 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     // when textfield stop editing (keyboard dismissed)
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //        searchField.text = ""   // clear textField
+    func textFieldDidEndEditing(_ textField: UITextField) {}
+}
+
+// MARK: - Handle Searching
+
+extension WeatherViewController {
+    func handleFetchWeatherWithSearchedWord() async {
+        guard let searchedWord = searchField.text else {
+            return
+        }
+                
+        do {
+            let weatherData = try await APIService.shared.fetchWeather(for: .city(searchedWord))
+            let weatherModel = WeatherModel(from: weatherData)
+            configureUI(weatherModel: weatherModel)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
 // MARK: - View update extension
-extension WeatherViewController: WeatherManagerDelegate {
-    
-    func updateWeather(weatherModel: WeatherModel) {
-        DispatchQueue.main.sync {
-            temperatureLabel.text = weatherModel.temperatureString
-            cityLabel.text = weatherModel.cityName
-            self.conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
-            
-            if weatherModel.cityName == "Tokyo" {
-                self.backgroundImageView.image = UIImage(named: "background-tokyo")
-            } else {
-                self.backgroundImageView.image = UIImage(named: "background")
-            }
+
+extension WeatherViewController {
+    // TODO: Viewにモデルをもたせる形に変更する // swiftlint:disable:this todo
+    private func configureUI(weatherModel: WeatherModel) {
+        temperatureLabel.text = weatherModel.temperatureString
+        cityLabel.text = weatherModel.cityName
+        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+        
+        if weatherModel.cityName == "Tokyo" {
+            self.backgroundImageView.image = UIImage(named: "background-tokyo")
+        } else {
+            self.backgroundImageView.image = UIImage(named: "background")
         }
-    }
-    
-    func failedWithError(error: Error) {
-        print(error)
     }
 }
 
 // MARK: - CLLocation
 extension WeatherViewController: CLLocationManagerDelegate {
-    
-    @IBAction private func locationButtonClicked(_ sender: UIButton) {
-        // Get permission
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            weatherManager.fetchWeather(lat, lon)
+        guard let location = locations.last else {
+            return
+        }
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        Task {
+            do {
+                let weatherData = try await APIService.shared.fetchWeather(for: .coordinate(.init(latitude: lat, longitude: lon)))
+                let weatherModel = WeatherModel(from: weatherData)
+                configureUI(weatherModel: weatherModel)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
-    }
-}
-
-// MARK: - Favorites Button
-
-extension WeatherViewController {
-    @IBAction private func favoritesButtonClicked(_ sender: UIButton) {
-        let viewController = FavoritesViewController()
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
