@@ -13,6 +13,7 @@ class FavoriteLocationGroupsViewController: UIViewController {
     // MARK: - Properties
     
     private var locationGroups = FavoriteLocationGroup.defined
+    private var sectionExpandedStatuses: [Bool] = Array(repeating: true, count: FavoriteLocationGroup.defined.count)
     @IBOutlet private weak var tableView: UITableView!
             
     // MARK: - LifeCycle
@@ -76,7 +77,7 @@ extension FavoriteLocationGroupsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = FavoriteLocationGroupsTableHeaderView(frame: .init(x: 0, y: 0, width: 100, height: 100))
         view.delegate = self
-        view.locationGroup = locationGroups[section]
+        view.applyWith(group: locationGroups[section], isExpanded: sectionExpandedStatuses[section])
         return view
     }
     
@@ -87,8 +88,7 @@ extension FavoriteLocationGroupsViewController: UITableViewDataSource {
     // MARK: - Cells
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let group = locationGroups[section]
-        return group.isExpanded ? group.locations.count : 0
+        return locationGroups[section].locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +98,7 @@ extension FavoriteLocationGroupsViewController: UITableViewDataSource {
         ) else {
             return UITableViewCell()
         }
-        cell.location = locationGroups[indexPath.section].locations[indexPath.row]
+        cell.applyWith(location: locationGroups[indexPath.section].locations[indexPath.row])
         return cell
     }
 }
@@ -114,10 +114,10 @@ extension FavoriteLocationGroupsViewController: FavoritedLocationTableHeaderView
         }
         
         // 開閉状態のデータ更新
-        locationGroups[groupIndex].isExpanded.toggle()
+        sectionExpandedStatuses[groupIndex].toggle()
                 
         // 開閉処理をアニメーション付きで行う
-        if locationGroups[groupIndex].isExpanded {
+        if sectionExpandedStatuses[groupIndex] {
             // グループが開かれた場合
             let indexPaths = (0..<FavoriteLocationGroup.defined[groupIndex].locations.count).map {
                 IndexPath(row: $0, section: groupIndex)
@@ -141,7 +141,7 @@ extension FavoriteLocationGroupsViewController: FavoritedLocationTableHeaderView
         }
         
         // ヘッダビュー側のデータとUIの更新
-        headerView.locationGroup = locationGroups[groupIndex]
+        headerView.applyWith(group: locationGroups[groupIndex], isExpanded: sectionExpandedStatuses[groupIndex])
     }
 }
 

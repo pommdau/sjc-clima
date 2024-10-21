@@ -14,7 +14,6 @@ struct FavoriteLocationGroup {
     private let uuid = UUID()
     let name: String
     var locations: [FavoriteLocation]
-    var isExpanded: Bool = true
 }
 
 extension FavoriteLocationGroup: Identifiable {

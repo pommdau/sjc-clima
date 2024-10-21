@@ -12,20 +12,11 @@ class FavoriteLocationGroupsTableViewCell: UITableViewCell {
                 
     // MARK: - Properties
     
-    var location: FavoriteLocation? {
-        didSet {
-            configureUI()
-        }
-    }
-    
     @IBOutlet private weak var nameLabel: UILabel!
                 
     // MARK: - View
     
-    private func configureUI() {
-        guard let location else {
-            return
-        }
+    func applyWith(location: FavoriteLocation) {
         nameLabel.text = location.title
     }
 }

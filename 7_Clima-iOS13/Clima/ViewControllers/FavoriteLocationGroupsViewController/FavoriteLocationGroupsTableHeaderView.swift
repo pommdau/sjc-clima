@@ -20,11 +20,7 @@ class FavoriteLocationGroupsTableHeaderView: UIView {
 
     // MARK: - Properties
     
-    var locationGroup: FavoriteLocationGroup? {
-        didSet {
-            configureUI()
-        }
-    }
+    var locationGroup: FavoriteLocationGroup?
     weak var delegate: FavoritedLocationTableHeaderViewDelegate?
         
     @IBOutlet private weak var nameLabel: UILabel!
@@ -57,13 +53,11 @@ class FavoriteLocationGroupsTableHeaderView: UIView {
         addSubview(view)
     }
     
-    private func configureUI() {
-        guard let locationGroup else {
-            return
-        }
-        nameLabel.text = locationGroup.name
+    func applyWith(group: FavoriteLocationGroup, isExpanded: Bool) {
+        self.locationGroup = group
+        self.nameLabel.text = group.name
         UIView.animate(withDuration: 0.1) {
-            let rotationDegrees: CGFloat = locationGroup.isExpanded ? 90 : 0
+            let rotationDegrees: CGFloat = isExpanded ? 90 : 0
             self.expandedStatusImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 180 * rotationDegrees)
         }
     }
