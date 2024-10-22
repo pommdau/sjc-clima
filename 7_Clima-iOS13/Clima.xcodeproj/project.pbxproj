@@ -13,9 +13,19 @@
 		ADAA27B3231BBFAF00365194 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */; };
 		ADAA27BA231BBFB300365194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27B9231BBFB300365194 /* Assets.xcassets */; };
 		ADAA27BD231BBFB300365194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */; };
-		ADAA27C6231BC02C00365194 /* light_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C4231BC02B00365194 /* light_background.pdf */; };
-		ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C5231BC02B00365194 /* dark_background.pdf */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
+		DA1A9D582CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D542CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.swift */; };
+		DA1A9D592CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D522CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.swift */; };
+		DA1A9D5A2CB92A9E005C06F9 /* FavoriteLocationGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D562CB92A9E005C06F9 /* FavoriteLocationGroupsViewController.swift */; };
+		DA1A9D5B2CB92A9E005C06F9 /* FavoriteLocationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D572CB92A9E005C06F9 /* FavoriteLocationGroup.swift */; };
+		DA1A9D5C2CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D552CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.xib */; };
+		DA1A9D5D2CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D532CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.xib */; };
+		DA1A9D5F2CB92B09005C06F9 /* FavoriteLocationGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D5E2CB92B09005C06F9 /* FavoriteLocationGroupsViewController.xib */; };
+		DA1A9D662CB92E03005C06F9 /* FavoriteLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A9D642CB92E03005C06F9 /* FavoriteLocationViewController.swift */; };
+		DA1A9D672CB92E03005C06F9 /* FavoriteLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D652CB92E03005C06F9 /* FavoriteLocationViewController.xib */; };
+		DA1A9D702CBA9290005C06F9 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = DA1A9D6F2CBA9290005C06F9 /* RswiftLibrary */; };
+		DA1A9D762CBE1186005C06F9 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = DA1A9D752CBE1186005C06F9 /* SFSafeSymbols */; };
+		DA1A9D7A2CBE169C005C06F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA1A9D782CBE169C005C06F9 /* Localizable.strings */; };
 		DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */; };
 		DA1B61972CAE5D5700BC0A28 /* HTTPTypes in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61962CAE5D5700BC0A28 /* HTTPTypes */; };
 		DA1B61992CAE5D5700BC0A28 /* HTTPTypesFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = DA1B61982CAE5D5700BC0A28 /* HTTPTypesFoundation */; };
@@ -26,8 +36,7 @@
 		DA1F582A2CAD81E900BD59C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */; };
 		DA2083272CB8E4AE004B6AF8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2083262CB8E4AE004B6AF8 /* APIService.swift */; };
 		DA20832C2CB8EA65004B6AF8 /* WeatherAPIRequest+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20832B2CB8EA65004B6AF8 /* WeatherAPIRequest+Location.swift */; };
-		DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */; };
-		DA95EF282CAD8FCF00EFAE82 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */; };
+		DA231BB92CBE3B6C00AC995A /* FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA231BB82CBE3B6C00AC995A /* FavoriteLocation.swift */; };
 		DA95EF2D2CADA33C00EFAE82 /* pull_request_template.md in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF2B2CADA33C00EFAE82 /* pull_request_template.md */; };
 		DA95EF2E2CADA33C00EFAE82 /* run-swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA95EF292CADA33C00EFAE82 /* run-swiftlint.yml */; };
 		DA95EF502CAE4AAE00EFAE82 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */; };
@@ -43,9 +52,17 @@
 		ADAA27B9231BBFB300365194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAA27BC231BBFB300365194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAA27BE231BBFB300365194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADAA27C4231BC02B00365194 /* light_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = light_background.pdf; sourceTree = "<group>"; };
-		ADAA27C5231BC02B00365194 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DA1A9D522CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationGroupsTableHeaderView.swift; sourceTree = "<group>"; };
+		DA1A9D532CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteLocationGroupsTableHeaderView.xib; sourceTree = "<group>"; };
+		DA1A9D542CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationGroupsTableViewCell.swift; sourceTree = "<group>"; };
+		DA1A9D552CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteLocationGroupsTableViewCell.xib; sourceTree = "<group>"; };
+		DA1A9D562CB92A9E005C06F9 /* FavoriteLocationGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationGroupsViewController.swift; sourceTree = "<group>"; };
+		DA1A9D572CB92A9E005C06F9 /* FavoriteLocationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationGroup.swift; sourceTree = "<group>"; };
+		DA1A9D5E2CB92B09005C06F9 /* FavoriteLocationGroupsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteLocationGroupsViewController.xib; sourceTree = "<group>"; };
+		DA1A9D642CB92E03005C06F9 /* FavoriteLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationViewController.swift; sourceTree = "<group>"; };
+		DA1A9D652CB92E03005C06F9 /* FavoriteLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteLocationViewController.xib; sourceTree = "<group>"; };
+		DA1A9D792CBE169C005C06F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA1B61932CAE5D3600BC0A28 /* APIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestProtocol.swift; sourceTree = "<group>"; };
 		DA1B61AA2CAF075D00BC0A28 /* IcanhazdadjokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcanhazdadjokeData.swift; sourceTree = "<group>"; };
 		DA1B61C02CAF12EA00BC0A28 /* IcanhazdadjokeAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcanhazdadjokeAPIRequest.swift; sourceTree = "<group>"; };
@@ -54,8 +71,7 @@
 		DA1F58292CAD81E900BD59C9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DA2083262CB8E4AE004B6AF8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DA20832B2CB8EA65004B6AF8 /* WeatherAPIRequest+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherAPIRequest+Location.swift"; sourceTree = "<group>"; };
-		DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		DA231BB82CBE3B6C00AC995A /* FavoriteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocation.swift; sourceTree = "<group>"; };
 		DA95EF292CADA33C00EFAE82 /* run-swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "run-swiftlint.yml"; sourceTree = "<group>"; };
 		DA95EF2B2CADA33C00EFAE82 /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pull_request_template.md; sourceTree = "<group>"; };
 		DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +85,8 @@
 			files = (
 				DA1B61972CAE5D5700BC0A28 /* HTTPTypes in Frameworks */,
 				DA1B61992CAE5D5700BC0A28 /* HTTPTypesFoundation in Frameworks */,
+				DA1A9D762CBE1186005C06F9 /* SFSafeSymbols in Frameworks */,
+				DA1A9D702CBA9290005C06F9 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,45 +115,76 @@
 		ADAA27AF231BBFAF00365194 /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				ADAA27BE231BBFB300365194 /* Info.plist */,
 				ADAA27B0231BBFAF00365194 /* AppDelegate.swift */,
 				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
 				DA1B61922CAE5C9E00BC0A28 /* API */,
-				ADAA27CA231BC3FA00365194 /* Model */,
-				ADAA27C9231BC3F200365194 /* View */,
-				ADAA27C8231BC3E500365194 /* Controller */,
-				ADAA27B9231BBFB300365194 /* Assets.xcassets */,
-				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
-				ADAA27BE231BBFB300365194 /* Info.plist */,
-				ADAA27C5231BC02B00365194 /* dark_background.pdf */,
-				ADAA27C4231BC02B00365194 /* light_background.pdf */,
+				ADAA27CA231BC3FA00365194 /* Models */,
+				ADAA27C9231BC3F200365194 /* ViewControllers */,
+				DA1A9D7C2CBE16EF005C06F9 /* Resources */,
 			);
 			path = Clima;
 			sourceTree = "<group>";
 		};
-		ADAA27C8231BC3E500365194 /* Controller */ = {
+		ADAA27C9231BC3F200365194 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
-				DA95EF252CAD8FCF00EFAE82 /* FavoritesViewController.swift */,
+				DA1A9D6C2CB95922005C06F9 /* WeatherViewController */,
+				DA1A9D6B2CB958E4005C06F9 /* FavoriteLocationGroupsViewController */,
+				DA1A9D6D2CB95935005C06F9 /* FavoriteLocationViewController */,
 			);
-			path = Controller;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		ADAA27C9231BC3F200365194 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */,
-				DA95EF262CAD8FCF00EFAE82 /* FavoritesViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		ADAA27CA231BC3FA00365194 /* Model */ = {
+		ADAA27CA231BC3FA00365194 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7DB97A2B24585AB800C3BB03 /* WeatherModel.swift */,
+				DA231BB82CBE3B6C00AC995A /* FavoriteLocation.swift */,
+				DA1A9D572CB92A9E005C06F9 /* FavoriteLocationGroup.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA1A9D6B2CB958E4005C06F9 /* FavoriteLocationGroupsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A9D562CB92A9E005C06F9 /* FavoriteLocationGroupsViewController.swift */,
+				DA1A9D5E2CB92B09005C06F9 /* FavoriteLocationGroupsViewController.xib */,
+				DA1A9D522CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.swift */,
+				DA1A9D532CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.xib */,
+				DA1A9D542CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.swift */,
+				DA1A9D552CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.xib */,
+			);
+			path = FavoriteLocationGroupsViewController;
+			sourceTree = "<group>";
+		};
+		DA1A9D6C2CB95922005C06F9 /* WeatherViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA95EF4E2CAE4AAE00EFAE82 /* WeatherViewController.swift */,
+				DA95EF4F2CAE4AAE00EFAE82 /* WeatherViewController.xib */,
+			);
+			path = WeatherViewController;
+			sourceTree = "<group>";
+		};
+		DA1A9D6D2CB95935005C06F9 /* FavoriteLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A9D642CB92E03005C06F9 /* FavoriteLocationViewController.swift */,
+				DA1A9D652CB92E03005C06F9 /* FavoriteLocationViewController.xib */,
+			);
+			path = FavoriteLocationViewController;
+			sourceTree = "<group>";
+		};
+		DA1A9D7C2CBE16EF005C06F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A9D782CBE169C005C06F9 /* Localizable.strings */,
+				ADAA27B9231BBFB300365194 /* Assets.xcassets */,
+				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DA1B61922CAE5C9E00BC0A28 /* API */ = {
@@ -209,6 +258,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA1A9D722CBA92C0005C06F9 /* PBXTargetDependency */,
 				DA1F582D2CAD824000BD59C9 /* PBXTargetDependency */,
 			);
 			name = Clima;
@@ -244,6 +294,8 @@
 			packageReferences = (
 				DA1F582B2CAD821C00BD59C9 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */,
+				DA1A9D6E2CBA9290005C06F9 /* XCRemoteSwiftPackageReference "R" */,
+				DA1A9D742CBE1186005C06F9 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = ADAA27AE231BBFAF00365194 /* Products */;
 			projectDirPath = "";
@@ -259,16 +311,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1A9D5C2CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.xib in Resources */,
+				DA1A9D5D2CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.xib in Resources */,
 				DA95EF2D2CADA33C00EFAE82 /* pull_request_template.md in Resources */,
+				DA1A9D7A2CBE169C005C06F9 /* Localizable.strings in Resources */,
+				DA1A9D672CB92E03005C06F9 /* FavoriteLocationViewController.xib in Resources */,
 				DA95EF2E2CADA33C00EFAE82 /* run-swiftlint.yml in Resources */,
 				ADAA27CE231BC87F00365194 /* README.md in Resources */,
-				ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */,
 				ADAA27BD231BBFB300365194 /* LaunchScreen.storyboard in Resources */,
 				DA1F582A2CAD81E900BD59C9 /* .swiftlint.yml in Resources */,
 				ADAA27BA231BBFB300365194 /* Assets.xcassets in Resources */,
-				DA95EF282CAD8FCF00EFAE82 /* FavoritesViewController.xib in Resources */,
 				DA95EF512CAE4AAE00EFAE82 /* WeatherViewController.xib in Resources */,
-				ADAA27C6231BC02C00365194 /* light_background.pdf in Resources */,
+				DA1A9D5F2CB92B09005C06F9 /* FavoriteLocationGroupsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,15 +334,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1B61CD2CAF192F00BC0A28 /* APIServiceError.swift in Sources */,
+				DA1A9D582CB92A9E005C06F9 /* FavoriteLocationGroupsTableViewCell.swift in Sources */,
+				DA1A9D592CB92A9E005C06F9 /* FavoriteLocationGroupsTableHeaderView.swift in Sources */,
+				DA1A9D5A2CB92A9E005C06F9 /* FavoriteLocationGroupsViewController.swift in Sources */,
+				DA1A9D662CB92E03005C06F9 /* FavoriteLocationViewController.swift in Sources */,
+				DA1A9D5B2CB92A9E005C06F9 /* FavoriteLocationGroup.swift in Sources */,
 				DA20832C2CB8EA65004B6AF8 /* WeatherAPIRequest+Location.swift in Sources */,
 				DA1B61942CAE5D3600BC0A28 /* APIRequestProtocol.swift in Sources */,
 				7D6425982451AEA500F1DD90 /* WeatherData.swift in Sources */,
 				DA1B61C92CAF151700BC0A28 /* WeatherAPIRequest.swift in Sources */,
 				DA1B61C12CAF12EA00BC0A28 /* IcanhazdadjokeAPIRequest.swift in Sources */,
-				DA95EF272CAD8FCF00EFAE82 /* FavoritesViewController.swift in Sources */,
 				ADAA27B1231BBFAF00365194 /* AppDelegate.swift in Sources */,
 				DA95EF502CAE4AAE00EFAE82 /* WeatherViewController.swift in Sources */,
 				7DB97A2C24585AB800C3BB03 /* WeatherModel.swift in Sources */,
+				DA231BB92CBE3B6C00AC995A /* FavoriteLocation.swift in Sources */,
 				DA1B61AB2CAF075D00BC0A28 /* IcanhazdadjokeData.swift in Sources */,
 				DA2083272CB8E4AE004B6AF8 /* APIService.swift in Sources */,
 				ADAA27B3231BBFAF00365194 /* SceneDelegate.swift in Sources */,
@@ -298,6 +357,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DA1A9D722CBA92C0005C06F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DA1A9D712CBA92C0005C06F9 /* RswiftGenerateInternalResources */;
+		};
 		DA1F582D2CAD824000BD59C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = DA1F582C2CAD824000BD59C9 /* SwiftLintBuildToolPlugin */;
@@ -311,6 +374,14 @@
 				ADAA27BC231BBFB300365194 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA1A9D782CBE169C005C06F9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1A9D792CBE169C005C06F9 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -498,6 +569,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA1A9D6E2CBA9290005C06F9 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.7.0;
+			};
+		};
+		DA1A9D742CBE1186005C06F9 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
 		DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-http-types";
@@ -517,6 +604,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA1A9D6F2CBA9290005C06F9 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA1A9D6E2CBA9290005C06F9 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		DA1A9D712CBA92C0005C06F9 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA1A9D6E2CBA9290005C06F9 /* XCRemoteSwiftPackageReference "R" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		DA1A9D752CBE1186005C06F9 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA1A9D742CBE1186005C06F9 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 		DA1B61962CAE5D5700BC0A28 /* HTTPTypes */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA1B61952CAE5D5700BC0A28 /* XCRemoteSwiftPackageReference "swift-http-types" */;
