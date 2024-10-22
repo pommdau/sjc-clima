@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     private var items: [String] = ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"]
     private let subject = PassthroughSubject<String, Never>()
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
             
     override func viewDidLoad() {
         super.viewDidLoad()

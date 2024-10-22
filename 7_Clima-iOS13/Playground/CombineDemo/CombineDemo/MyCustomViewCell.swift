@@ -11,15 +11,15 @@ import Combine
 class MyCustomViewCell: UITableViewCell {
 
     // MARK: - Properties
-    
-    @IBOutlet private weak var nameLabel: UILabel!
+        
     private var subscription: AnyCancellable?
+    @IBOutlet private weak var nameLabel: UILabel!
                
     // MARK: - View
     
     func applyWith(name: String, subject: PassthroughSubject<String, Never>) {
         nameLabel.text = name
-        subscription = subject.sink { completion in
+        subscription = subject.sink { _ in
         } receiveValue: { value in
             guard let nameLabelText = self.nameLabel.text else {
                 return
