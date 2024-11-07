@@ -30,4 +30,4 @@ jobs:
 
     # SwiftLintを実行
     - name: Run SwiftLint
-      run: swiftlint --strict
+      run: swiftlint --strict --path "7_Clima-iOS13/, Playground/CombineDemo/"
