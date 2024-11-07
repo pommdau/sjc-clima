@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol IUseCase {
-    func execute(option: MenuOption) throws(UseCaseError) -> Menu
+protocol CreateMenuUseCaseProtocol {
+    func cook(option: MenuOption) throws(CreateMenuUseCaseError) -> Menu
 }

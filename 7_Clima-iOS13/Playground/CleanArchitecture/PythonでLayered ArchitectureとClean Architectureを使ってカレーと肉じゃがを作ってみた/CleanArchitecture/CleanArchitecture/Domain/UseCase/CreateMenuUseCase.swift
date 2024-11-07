@@ -7,24 +7,8 @@
 
 import Foundation
 
-struct CreateMenuUseCase: IUseCase {
-    
-    let repository: IRepository
-    
-    func execute(option: MenuOption) throws(UseCaseError) -> Menu {
-        var dataFetcher = DataFetcher(repository: repository)
-        dataFetcher.fetch(option: option)
-        var chef = Chef()
-        return chef.cook(
-            ingredients: dataFetcher.ingredients,
-            seasonings: dataFetcher.seasonings,
-            option: option
-        )
-    }
-}
-
 private struct DataFetcher {
-    let repository: IRepository
+    let repository: FoodItemRepositoryProtocol
     var ingredients: [Ingredient] = []
     var seasonings: [Seasoning] = []
     
@@ -50,5 +34,21 @@ private struct DataFetcher {
                 repository.getSoySauce(),
             ]
         }
+    }
+}
+
+struct CreateMenuUseCase: CreateMenuUseCaseProtocol {
+    
+    let repository: FoodItemRepositoryProtocol
+    
+    func cook(option: MenuOption) throws(CreateMenuUseCaseError) -> Menu {
+        var dataFetcher = DataFetcher(repository: repository)
+        dataFetcher.fetch(option: option)
+        var chef = Chef()
+        return chef.cook(
+            ingredients: dataFetcher.ingredients,
+            seasonings: dataFetcher.seasonings,
+            option: option
+        )
     }
 }

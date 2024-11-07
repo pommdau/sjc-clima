@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol IRepository {
+protocol FoodItemRepositoryProtocol {
     func getOnion() -> Ingredient
     func getPotato() -> Ingredient
     func getCarrot() -> Ingredient

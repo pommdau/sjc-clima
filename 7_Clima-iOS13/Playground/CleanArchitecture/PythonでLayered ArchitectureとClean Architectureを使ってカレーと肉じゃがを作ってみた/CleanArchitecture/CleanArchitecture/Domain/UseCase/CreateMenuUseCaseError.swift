@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum UseCaseError: Error {
+enum CreateMenuUseCaseError: Error {
     case networkError, decodingError, undefinedError
 }

@@ -8,18 +8,18 @@
 import Foundation
  
 struct MenuViewModel {
-    private var usecase: IUseCase
+    private var createMenuUsecase: CreateMenuUseCaseProtocol
     private(set) var menu: Menu?
     
-    init(usecase: IUseCase = CreateMenuUseCase(repository: Repository()),
+    init(usecase: CreateMenuUseCaseProtocol = CreateMenuUseCase(repository: FoodItemRepository()),
          menu: Menu? = nil) {
-        self.usecase = usecase
+        self.createMenuUsecase = usecase
         self.menu = menu
     }
     
     mutating func handleCookButtonTapped(option: MenuOption) {
         do {
-            self.menu = try usecase.execute(option: option)
+            self.menu = try createMenuUsecase.cook(option: option)
         } catch {
             print(error.localizedDescription)
         }
