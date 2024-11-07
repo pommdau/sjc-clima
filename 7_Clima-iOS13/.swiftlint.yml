@@ -7,10 +7,10 @@
 #  - {プロジェクト名}
 #
 ## 対象外のファイル・フォルダ
-#excluded:
+excluded:
 #  - Pods
 #  - Generated
-#
+  - "7_Clima-iOS13/Playground"
 
 # デフォルト有効で無効にするルール
 disabled_rules:
