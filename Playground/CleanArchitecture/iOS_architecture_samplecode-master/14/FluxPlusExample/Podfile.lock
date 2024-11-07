@@ -1,0 +1,33 @@
+PODS:
+  - GitHub (0.1.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+
+DEPENDENCIES:
+  - GitHub (from `../../GitHub`)
+  - RxCocoa (~> 6.0)
+  - RxSwift (~> 6.0)
+
+SPEC REPOS:
+  trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  GitHub:
+    :path: "../../GitHub"
+
+SPEC CHECKSUMS:
+  GitHub: 93b0f897d898fbd166759b76ae39f95939b8f2ac
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+
+PODFILE CHECKSUM: 56a0345c9291a614f5f900da527e9faa659c94ae
+
+COCOAPODS: 1.10.1

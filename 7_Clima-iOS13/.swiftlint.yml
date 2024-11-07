@@ -10,7 +10,6 @@
 #excluded:
 #  - Pods
 #  - Generated
-#
 
 # デフォルト有効で無効にするルール
 disabled_rules:
