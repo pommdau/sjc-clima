@@ -63,7 +63,7 @@ extension MenuView {
             }
         } else {
             Text("料理がありません")
-                .onAppear() {
+                .onAppear {
                     viewModel.handleCookButtonTapped(option: menuOption)
                 }
         }

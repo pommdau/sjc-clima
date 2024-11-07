@@ -313,14 +313,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		1F5B9E20221D61290051B5F2 /* Data */ = {
+		1F5B9E20221D61290051B5F2 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
 				1FFFC824221B0041007D99D2 /* Repositories */,
 				1FA533E0201EF58F00747E55 /* Network */,
 				FC7408122165557500FE52A5 /* PersistentStorages */,
 			);
-			path = Data;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
 		1F6B52142363002C002FCDE9 /* Utils */ = {
@@ -473,7 +473,7 @@
 				1FA533D5201EF29600747E55 /* Application */,
 				1FE49D63230AA7C200D1D42E /* Presentation */,
 				1FA533D1201EF1EC00747E55 /* Domain */,
-				1F5B9E20221D61290051B5F2 /* Data */,
+				1F5B9E20221D61290051B5F2 /* DataLayer */,
 				1FEED0D320231D93000F4EAA /* Infrastructure */,
 				1FEED0D520231F72000F4EAA /* Common */,
 				1FA533AD201E205000747E55 /* Resources */,

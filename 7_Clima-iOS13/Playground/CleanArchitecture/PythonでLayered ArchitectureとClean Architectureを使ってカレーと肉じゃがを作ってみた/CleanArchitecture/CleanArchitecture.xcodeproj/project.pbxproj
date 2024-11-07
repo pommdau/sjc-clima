@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DA22EDD32CDD074B001B62D6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA22EDD22CDD074B001B62D6 /* .swiftlint.yml */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DA14D1262CDB46DD00E947A4 /* CleanArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA22EDD22CDD074B001B62D6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -34,6 +39,7 @@
 			children = (
 				DA14D1282CDB46DD00E947A4 /* CleanArchitecture */,
 				DA14D1272CDB46DD00E947A4 /* Products */,
+				DA22EDD22CDD074B001B62D6 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +65,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA22EDD12CDD0746001B62D6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DA14D1282CDB46DD00E947A4 /* CleanArchitecture */,
@@ -94,6 +101,9 @@
 			);
 			mainGroup = DA14D11D2CDB46DD00E947A4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DA22EDCF2CDD073B001B62D6 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DA14D1272CDB46DD00E947A4 /* Products */;
 			projectDirPath = "";
@@ -109,6 +119,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA22EDD32CDD074B001B62D6 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +134,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA22EDD12CDD0746001B62D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DA22EDD02CDD0746001B62D6 /* SwiftLintBuildToolPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DA14D1322CDB46DE00E947A4 /* Debug */ = {
@@ -324,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA22EDCF2CDD073B001B62D6 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA22EDD02CDD0746001B62D6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA22EDCF2CDD073B001B62D6 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA14D11E2CDB46DD00E947A4 /* Project object */;
 }
