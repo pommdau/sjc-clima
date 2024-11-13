@@ -67,7 +67,6 @@ final class ReposLikesUseCase: ReposLikesUseCaseProtocol {
 
     // キーワードでリポジトリを検索し、結果とお気に入り状態を組み合わせた結果をOutputに通知する
     func startFetch(using keywords: [String]) {
-
         reposGateway.fetch(using: keywords) { [weak self] reposResult in
             guard let self = self else { return }
 
