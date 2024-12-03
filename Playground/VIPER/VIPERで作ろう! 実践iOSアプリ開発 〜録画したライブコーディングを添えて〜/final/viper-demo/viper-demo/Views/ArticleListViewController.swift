@@ -9,6 +9,8 @@ import UIKit
 
 class ArticleListViewController: UIViewController {
     
+    var presenter: ArticleListPresenterProtocol!
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var articleEntities: [ArticleEntity] = [
@@ -17,6 +19,7 @@ class ArticleListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.didLoad()
     }
 }
 
@@ -37,4 +40,19 @@ extension ArticleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension ArticleListViewController: ArticleListViewProtocol {
+    func showArticles(_ articleEntities: [ArticleEntity]) {
+        self.articleEntities = articleEntities
+        tableView.reloadData()
+    }
+    
+    func showEmpty() {
+        showArticles([])
+    }
+    
+    func showError(_ error: any Error) {
+        // Skip
+    }        
 }
