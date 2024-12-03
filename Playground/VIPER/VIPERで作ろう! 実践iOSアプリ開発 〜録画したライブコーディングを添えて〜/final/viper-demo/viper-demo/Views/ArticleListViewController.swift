@@ -11,7 +11,9 @@ class ArticleListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var articleEntities: [ArticleEntity] = []
+    private var articleEntities: [ArticleEntity] = [
+        ArticleEntity(id: 1, userId: 2, title: "demo-title", body: "demo-body")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,7 @@ extension ArticleListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = articleEntities[indexPath.row].title
         return cell
-    }
-    
-    
+    }        
 }
 
 extension ArticleListViewController: UITableViewDelegate {
