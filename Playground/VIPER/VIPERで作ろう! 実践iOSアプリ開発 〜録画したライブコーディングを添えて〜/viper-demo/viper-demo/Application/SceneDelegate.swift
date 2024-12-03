@@ -24,6 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 as? ArticleListViewController else {
             fatalError()
         }
+        
+//        guard let articleListViewController = UIStoryboard(name: "ArticleDetail", bundle: nil).instantiateInitialViewController()
+//                as? ArticleDetailViewController else {
+//            fatalError()
+//        }
+//        articleListViewController.articleEntity = ArticleEntity(id: 1, userId: 2, title: "demo-title", body: "demo-body")
+        
         let navigation = UINavigationController(rootViewController: articleListViewController)
         window?.rootViewController = navigation
     }
