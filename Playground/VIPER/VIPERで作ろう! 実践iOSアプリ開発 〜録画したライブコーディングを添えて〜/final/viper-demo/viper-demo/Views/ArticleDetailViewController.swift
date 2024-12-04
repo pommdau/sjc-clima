@@ -19,11 +19,13 @@ class ArticleDetailViewController: UIViewController {
     }
 
     var articleEntity: ArticleEntity!
+    var presenter: ArticleDetailPresenterProtocol!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.didLoad(articleEntity: articleEntity)
     }
 
 }
@@ -48,5 +50,17 @@ extension ArticleDetailViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension ArticleDetailViewController: ArticleDetailViewProtocol {
+
+    func showArticle(_ articleEntity: ArticleEntity) {
+        self.articleEntity = articleEntity
+        tableView.reloadData()
+    }
+    
+    func showError(_ error: any Error) {
+        // SKIP
     }
 }
