@@ -7,14 +7,20 @@
 
 import Foundation
 
+// MARK: - ArticleDetailPresenterProtocol(定義)
+
 protocol ArticleDetailPresenterProtocol: AnyObject {
     func didLoad(articleEntity: ArticleEntity)
 }
+
+// MARK: - ArticleDetailViewProtocol
 
 protocol ArticleDetailViewProtocol: AnyObject {
     func showArticle(_ articleEntity: ArticleEntity)
     func showError(_ error: Error)
 }
+
+// MARK: - ArticleDetailPresenter
 
 class ArticleDetailPresenter {
     struct Dependency {
@@ -30,6 +36,8 @@ class ArticleDetailPresenter {
     }
     
 }
+
+// MARK: - ArticleDetailPresenterProtocol(実装)
 
 extension ArticleDetailPresenter: ArticleDetailPresenterProtocol {
     func didLoad(articleEntity: ArticleEntity) {

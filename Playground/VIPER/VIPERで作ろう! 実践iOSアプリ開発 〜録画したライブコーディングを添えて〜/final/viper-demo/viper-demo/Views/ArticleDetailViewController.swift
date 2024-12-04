@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ArticleDetailViewController: UIViewController {
-    
+extension ArticleDetailViewController {
     enum Row: String {
         case title
         case body
@@ -17,18 +16,21 @@ class ArticleDetailViewController: UIViewController {
             return [.title, .body]
         }
     }
+}
+
+class ArticleDetailViewController: UIViewController {
 
     var articleEntity: ArticleEntity!
     var presenter: ArticleDetailPresenterProtocol!
-    
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad(articleEntity: articleEntity)
     }
-
 }
+
+// MARK: - UITableViewDataSource
 
 extension ArticleDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +54,8 @@ extension ArticleDetailViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - ArticleDetailViewProtocol
 
 extension ArticleDetailViewController: ArticleDetailViewProtocol {
 

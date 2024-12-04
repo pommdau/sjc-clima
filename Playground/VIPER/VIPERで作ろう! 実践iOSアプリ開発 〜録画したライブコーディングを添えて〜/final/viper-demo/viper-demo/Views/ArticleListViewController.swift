@@ -10,18 +10,16 @@ import UIKit
 class ArticleListViewController: UIViewController {
     
     var presenter: ArticleListPresenterProtocol!
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    private var articleEntities: [ArticleEntity] = [
-        ArticleEntity(id: 1, userId: 2, title: "demo-title", body: "demo-body")
-    ]
+    private var articleEntities: [ArticleEntity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ArticleListViewController: UITableViewDataSource {
 
@@ -36,12 +34,16 @@ extension ArticleListViewController: UITableViewDataSource {
     }        
 }
 
+// MARK: - UITableViewDelegate
+
 extension ArticleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelect(articleEntity: articleEntities[indexPath.row])
     }
 }
+
+// MARK: - ArticleListViewProtocol
 
 extension ArticleListViewController: ArticleListViewProtocol {
     func showArticles(_ articleEntities: [ArticleEntity]) {

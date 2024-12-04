@@ -39,7 +39,9 @@ private extension UseCase {
     }
     
     class UseCaseInstance<T: UseCaseProtocol>: UseCaseInstanceBase<T.Parameter, T.Success, T.Failure> {
+        
         private let useCase: T
+        
         init(_ useCase: T) {
             self.useCase = useCase
         }

@@ -7,16 +7,22 @@
 
 import Foundation
 
+// MARK: - ArticleListPresenterProtocol(定義)
+
 protocol ArticleListPresenterProtocol: AnyObject {
     func didLoad()
     func didSelect(articleEntity: ArticleEntity)
 }
+
+// MARK: - ArticleListViewProtocol
 
 protocol ArticleListViewProtocol: AnyObject {
     func showArticles(_ articleEntities: [ArticleEntity])
     func showEmpty()
     func showError(_ error: Error)
 }
+
+// MARK: - ArticleListPresenter
 
 class ArticleListPresenter {
     
@@ -33,6 +39,8 @@ class ArticleListPresenter {
         self.di = dependency
     }
 }
+
+// MARK: - ArticleListPresenterProtocol(実装)
 
 extension ArticleListPresenter: ArticleListPresenterProtocol {
     func didLoad() {
